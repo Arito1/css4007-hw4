@@ -1,0 +1,229 @@
+{
+  "settings": {
+    "model": "claude-haiku-5-5",
+    "max_tokens": 4096,
+    "thinking": {
+      "type": "disabled"
+    },
+    "effort": "medium",
+    "temperature": "default (1); Haiku 5.5 rejects other values",
+    "k": 5,
+    "max_rounds": 8,
+    "vague_lookup": false,
+    "started": "2026-10-19 02:09:35"
+  },
+  "summary": [
+    {
+      "strategy": "s1",
+      "correct": 3,
+      "n": 3,
+      "unanswered": 0,
+      "input_tokens": 9667,
+      "output_tokens": 1123,
+      "median_seconds": 2.45,
+      "total_seconds": 7.0,
+      "cost": 0.00153
+    },
+    {
+      "strategy": "s2",
+      "correct": 3,
+      "n": 3,
+      "unanswered": 0,
+      "input_tokens": 48695,
+      "output_tokens": 8690,
+      "median_seconds": 2.82,
+      "total_seconds": 9.9,
+      "cost": 0.00921
+    },
+    {
+      "strategy": "s3",
+      "correct": 3,
+      "n": 3,
+      "unanswered": 0,
+      "input_tokens": 22136,
+      "output_tokens": 1828,
+      "median_seconds": 4.61,
+      "total_seconds": 13.2,
+      "cost": 0.00313
+    }
+  ],
+  "rows": [
+    {
+      "strategy": "s1",
+      "id": "Q-01",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        4.57
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 3220,
+      "output_tokens": 220,
+      "cost": 0.000432,
+      "seconds": 2.4535073000006378,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-03",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        5.34
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 3227,
+      "output_tokens": 522,
+      "cost": 0.0005837,
+      "seconds": 2.5300928999786265,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-09",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        0.556
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 3220,
+      "output_tokens": 381,
+      "cost": 0.0005125,
+      "seconds": 2.046881599992048,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-01",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        4.57
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 16220,
+      "output_tokens": 1760,
+      "cost": 0.002502,
+      "seconds": 2.2550850000116043,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-03",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        5.34
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 16255,
+      "output_tokens": 4424,
+      "cost": 0.0038375,
+      "seconds": 4.791870700020809,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-09",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        0.556
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 16220,
+      "output_tokens": 2506,
+      "cost": 0.002875,
+      "seconds": 2.8194578000111505,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-01",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        4.57
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 8043,
+      "output_tokens": 571,
+      "cost": 0.0010898000000000001,
+      "seconds": 4.667656900011934,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-03",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        5.34
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 5971,
+      "output_tokens": 595,
+      "cost": 0.0008946,
+      "seconds": 3.9755022000172175,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 6
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-09",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        0.556
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 8122,
+      "output_tokens": 662,
+      "cost": 0.0011432,
+      "seconds": 4.606330800044816,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    }
+  ]
+}

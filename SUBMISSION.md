@@ -219,27 +219,89 @@ It looks simpler: one tool, no regexes, works for any question. I did not choose
 
 ### What I changed from Part A while coding
 
-<!-- what changed in your plan, and why. "None" is an answer too. -->
+- **The tools themselves: no change.** Both definitions in `tools.py` are exactly the ones in A2. The `lookup` index follows the plan: archived profiles are never indexed, the correction is applied, and Lindenmoor's m³ are converted.
+- **Small additions inside `lookup`.** It also accepts `"Brightwater district"` (trailing "district" is stripped), and for Tarnvale/Kelmarsh it adds `"archived_ignored": "NR-13"` / `"NR-14"` to the result, so the log shows that the archive was seen and skipped.
+- **Validation (step 7) is in `tools.py` (`validate_args`)** and not only in the loop, so I can test it without the model (`tests/test_calculate.py::test_loop_validation_rejects_bad_arguments`). It also accepts `input` as a JSON *string*, the OpenAI way, although Anthropic's SDK already delivers a parsed `dict`.
+- **S1 had to become structured output.** With thinking turned off, Claude Haiku 5.5 ignored "Reply with the ANSWER line only. Do not show any working." It wrote its calculations anyway (`outputs/smoke/s1/Q-09.json`: 381 output tokens of arithmetic before the ANSWER line). A stronger version of the instruction did not help either (Q-09: 361 tokens, Q-12: 479 tokens of working). That would turn S1 into a hidden single-sample S2. So S1 now asks for a JSON object `{"name": str, "number": float}` (`output_config.format` with a JSON schema). The code turns it into the same `ANSWER: name | number` line, so one parser scores all three strategies. This is the only part of the prompt that differs between S1 and S2 besides the reasoning instruction itself.
 
 ### B2 — Tests
 
 ```text
-<!-- pytest output -->
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\Arito\MyProgs\AI\css4007-hw4\.venv\Scripts\python.exe
+rootdir: C:\Users\Arito\MyProgs\AI\css4007-hw4
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 23 items
+
+tests/test_calculate.py::test_multiplication_is_exact PASSED             [  4%]
+tests/test_calculate.py::test_q09_expression PASSED                      [  8%]
+tests/test_calculate.py::test_precedence_parentheses_and_unary_minus PASSED [ 13%]
+tests/test_calculate.py::test_refuses_dangerous_inputs_quickly[__import__('os').system('echo hi')-not allowed] PASSED [ 17%]
+tests/test_calculate.py::test_refuses_dangerous_inputs_quickly[(1).__class__-not allowed] PASSED [ 21%]
+tests/test_calculate.py::test_refuses_dangerous_inputs_quickly[9**9**9-exponent too large] PASSED [ 26%]
+tests/test_calculate.py::test_division_by_zero PASSED                    [ 30%]
+tests/test_calculate.py::test_too_large_results_are_refused PASSED       [ 34%]
+tests/test_calculate.py::test_other_bad_inputs PASSED                    [ 39%]
+tests/test_calculate.py::test_loop_validation_rejects_bad_arguments PASSED [ 43%]
+tests/test_lookup.py::test_finds_correct_2025_population PASSED          [ 47%]
+tests/test_lookup.py::test_finds_2020_population_from_all_three_phrasings PASSED [ 52%]
+tests/test_lookup.py::test_misspelled_name_is_not_guessed PASSED         [ 56%]
+tests/test_lookup.py::test_similar_names_are_kept_apart PASSED           [ 60%]
+tests/test_lookup.py::test_archived_profile_is_never_used PASSED         [ 65%]
+tests/test_lookup.py::test_correction_notice_wins PASSED                 [ 69%]
+tests/test_lookup.py::test_cubic_metres_converted_to_megalitres PASSED   [ 73%]
+tests/test_lookup.py::test_region_tariff_is_2025_not_2024 PASSED         [ 78%]
+tests/test_lookup.py::test_bad_inputs_return_errors_not_exceptions PASSED [ 82%]
+tests/test_lookup.py::test_evidence_is_short_not_whole_document PASSED   [ 86%]
+tests/test_scoring.py::test_parse_takes_the_last_answer_line PASSED      [ 91%]
+tests/test_scoring.py::test_scoring_rule PASSED                          [ 95%]
+tests/test_scoring.py::test_majority_vote PASSED                         [100%]
+
+============================= 23 passed in 1.72s ==============================
 ```
+
+10 tests for `lookup`, 10 for `calculate` + the loop's input validation (the three dangerous inputs are one parametrised test each, and each must be refused in under 0.5 s), and 3 for the answer parser, the vote and the scoring rule. None of them needs an API key.
 
 ### B3 — The loop
 
-- Round limit, and why:
-- Where the logs are:
-- Real Q-09 conversation compared with my A3 version, what is different:
+The loop is `run_s3` in `strategies.py`. It is a manual loop on `client.messages.create(..., tools=[...])`:
+
+- It appends the assistant message **unchanged** (`response.content`, with its `tool_use` blocks) to the conversation.
+- For **every** `tool_use` block it validates the input (`validate_args`: known tool, object, required keys, no extra keys, string types, enum), runs the tool, and adds a `tool_result` with the same `tool_use_id`. Invalid input or a tool error comes back with `is_error: true`, never as an exception. All results of one turn go back in **one** user message.
+- It stops when the model answers without asking for a tool, or after `MAX_ROUNDS` model calls. If the limit is hit, the question is marked **unanswered**.
+
+- **Round limit, and why:** **8 model calls per question.** The hardest questions need about 6 facts (3 districts × 2 fields) + 3 per-district calculations + 1–2 comparisons. With parallel tool calls that is 3–4 rounds, as in my A3 plan (4 rounds for Q-09). If the model asks for facts one at a time it needs up to about 7. 8 leaves room for that plus one retry after a tool error. More rounds would only let a confused model keep going, and each extra round costs more than the last, because the whole growing conversation is sent again.
+- **Where the logs are:** `outputs/<run>/s3/Q-xx.json`. Each file holds every API call (round, input/output tokens, seconds, stop reason) and every tool call (round, `tool_use` id, tool, input, result, `is_error`, seconds), plus the full transcript. `outputs/<run>/results.json` has the per-question table and the summary.
+- Real Q-09 conversation compared with my A3 version, what is different: <!-- filled in after the full run -->
 
 ### B4 — Three strategies
 
 **What I kept the same:**
 
-<!-- model, temperature, k, prompts, answer format, anything else -->
+| Setting | Value |
+|---|---|
+| Model | `claude-haiku-5-5` for every call |
+| Thinking | `{"type": "disabled"}` for every call. All reasoning has to be written out as text, so S2's step-by-step really is the only reasoning |
+| Effort | `medium` (the model's default; thinking can only be disabled at effort ≤ high) |
+| `max_tokens` | 4096 |
+| Temperature | Not settable: Claude Haiku 5.5 returns a 400 for any temperature other than the default 1. Every call (all strategies) therefore samples at temperature 1, which is also what makes S2's 5 samples differ |
+| k (S2) | 5 samples, sent in parallel; majority vote on (name, number rounded to 3 dp), ties → the more common name, then the earlier sample |
+| Round limit (S3) | 8 model calls |
+| System prompt | the same first sentence for all three. S1/S2 add all 17 documents (archived ones and the correction included), S3 adds the tool instructions and no documents |
+| Answer format | the same `ANSWER: <name or yes/no> \| <number>` line, number rounded to 3 decimals (S1 via JSON, see above) |
+| Questions | the same 20, same order, run 1 and run 2 with identical code |
+| Prompt caching | off for all strategies. Token counts are the real billable tokens, and the documents (~3.2k tokens) are below the size where caching would work anyway |
+| Prices used for cost | Claude Haiku 5.5: $0.10 per million input tokens, $0.50 per million output tokens (prompts ≤ 100K tokens) |
 
 **My rule for a correct answer** (written before the first full run):
+
+1. Take the **last** `ANSWER:` line of the reply. No such line (or S3 hit the round limit) → **unanswered**, which counts as wrong.
+2. The **name** must equal `answer` in `questions.json`, ignoring upper/lower case and surrounding spaces, `*` and quotes. No partial matches: "Ossford" ≠ "Ossbridge".
+3. The **number** is rounded to the question's `decimals`. It must be within **1 unit of the last digit** of `value` (rounded the same way). Example Q-09: 0.556 → 0.6 ✓, 0.5 ✓, 0.077 → 0.1 ✗ (the uncorrected-area answer).
+4. Both 2 and 3 must hold.
+
+Why this rule: the name is exact, because the traps (Ossbridge/Ossford, wrong winner) are exactly name mistakes. The ±1 in the last digit allows for honest rounding differences: I ask for 3 decimals and round again, and the reference was computed by someone else's rounding. It still rejects every trap answer, which all differ by much more. The model is never told `decimals` or `value`; it always gives 3 decimals. The rule is implemented in `run.py::is_correct` and tested in `tests/test_scoring.py`.
 
 | Run | Strategy | Correct /20 | Unanswered | Input tokens | Output tokens | Median seconds per question | Total seconds | Cost ($) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
