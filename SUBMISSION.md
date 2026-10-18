@@ -273,7 +273,12 @@ The loop is `run_s3` in `strategies.py`. It is a manual loop on `client.messages
 
 - **Round limit, and why:** **8 model calls per question.** The hardest questions need about 6 facts (3 districts × 2 fields) + 3 per-district calculations + 1–2 comparisons. With parallel tool calls that is 3–4 rounds, as in my A3 plan (4 rounds for Q-09). If the model asks for facts one at a time it needs up to about 7. 8 leaves room for that plus one retry after a tool error. More rounds would only let a confused model keep going, and each extra round costs more than the last, because the whole growing conversation is sent again.
 - **Where the logs are:** `outputs/<run>/s3/Q-xx.json`. Each file holds every API call (round, input/output tokens, seconds, stop reason) and every tool call (round, `tool_use` id, tool, input, result, `is_error`, seconds), plus the full transcript. `outputs/<run>/results.json` has the per-question table and the summary.
-- Real Q-09 conversation compared with my A3 version, what is different: <!-- filled in after the full run -->
+- **Real Q-09 conversation compared with my A3 version** (`outputs/run1/s3/Q-09.json`): the *structure* is identical to A3. There are 4 model calls and 7 tool calls in the same groups: 4 `lookup`s in parallel in round 1, the two densities in round 2, the difference in round 3, the answer in round 4. All inputs and results are exactly the ones I wrote by hand, including the corrected area 921.4 from NR-16. What is different:
+  1. The model writes a short sentence before each group of calls, which I did not plan: *"I'll look up the 2025 population and area for both districts."*, *"Now I'll calculate the densities."*, *"Millbrook is denser than Brightwater, so I'll take the difference in the other direction."* That is 310 output tokens in round 1 instead of the ~100 the bare calls need.
+  2. The ids are real API ids (`toolu_01BHJzmHMicihiPxESKKWVby`, …), not `toolu_01`…`toolu_07`.
+  3. The difference is written with parentheses: `(37203 / 758.6) - (44675 / 921.4)`.
+  4. The final text cites the source: *"using the corrected Brightwater area of 921.4 km²"*. It can do that because `lookup` returned `source` and `note`.
+  5. The cost I had not written down: the input grows every round, 1,302 → 2,064 → 2,292 → 2,434 tokens. Each round resends the whole conversation, so Q-09 costs 8,092 input tokens in total, not 4 × 1,302.
 
 ### B4 — Three strategies
 
@@ -303,39 +308,49 @@ The loop is `run_s3` in `strategies.py`. It is a manual loop on `client.messages
 
 Why this rule: the name is exact, because the traps (Ossbridge/Ossford, wrong winner) are exactly name mistakes. The ±1 in the last digit allows for honest rounding differences: I ask for 3 decimals and round again, and the reference was computed by someone else's rounding. It still rejects every trap answer, which all differ by much more. The model is never told `decimals` or `value`; it always gives 3 decimals. The rule is implemented in `run.py::is_correct` and tested in `tests/test_scoring.py`.
 
+Produced by `python run.py --name run1` and `python run.py --name run2` (same code, one after the other), tables by `python analyze.py run1 run2`. Raw data: `outputs/run1/results.json`, `outputs/run2/results.json`. S2's seconds are wall-clock with the 5 samples sent in parallel. Tokens are summed from `usage` of **every** call (all 5 S2 samples, every S3 round).
+
 | Run | Strategy | Correct /20 | Unanswered | Input tokens | Output tokens | Median seconds per question | Total seconds | Cost ($) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | S1 direct | | | | | | | |
-| 1 | S2 think and vote (k = ) | | | | | | | |
-| 1 | S3 tools | | | | | | | |
-| 2 | S1 direct | | | | | | | |
-| 2 | S2 think and vote (k = ) | | | | | | | |
-| 2 | S3 tools | | | | | | | |
+| 1 | S1 direct | 1 | 0 | 67,552 | 403 | 1.03 | 21.7 | 0.0070 |
+| 1 | S2 think and vote (k = 5) | 19 | 0 | 325,260 | 48,942 | 2.98 | 60.7 | 0.0570 |
+| 1 | S3 tools | 20 | 0 | 144,432 | 12,508 | 4.83 | 94.6 | 0.0207 |
+| 2 | S1 direct | 1 | 0 | 67,552 | 406 | 1.06 | 22.4 | 0.0070 |
+| 2 | S2 think and vote (k = 5) | 19 | 0 | 325,260 | 47,808 | 2.97 | 61.1 | 0.0564 |
+| 2 | S3 tools | 20 | 0 | 142,430 | 12,693 | 4.90 | 97.5 | 0.0206 |
 
-**Per question (run 1):**
+**What everything cost:** $0.169 for the two full runs. Including the smoke tests and C1, $0.189 is logged in `outputs/*/results.json`. A few unlogged trial calls while fixing S1 (about 8 calls) add well under $0.01.
 
-| Question | S1 | S2 | S3 |
-|---|:---:|:---:|:---:|
-| Q-01 | | | |
-| Q-02 | | | |
-| Q-03 | | | |
-| Q-04 | | | |
-| Q-05 | | | |
-| Q-06 | | | |
-| Q-07 | | | |
-| Q-08 | | | |
-| Q-09 | | | |
-| Q-10 | | | |
-| Q-11 | | | |
-| Q-12 | | | |
-| Q-13 | | | |
-| Q-14 | | | |
-| Q-15 | | | |
-| Q-16 | | | |
-| Q-17 | | | |
-| Q-18 | | | |
-| Q-19 | | | |
-| Q-20 | | | |
+**Per question (run 1, with run 2 next to it):** ✓ correct, ✗ wrong, ∅ unanswered
+
+| Question | S1 r1 | S1 r2 | S2 r1 | S2 r2 | S3 r1 | S3 r2 | S3 rounds r1 | S3 tool calls r1 |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---:|---:|
+| Q-01 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-02 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 6 |
+| Q-03 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 6 |
+| Q-04 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-05 | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ | 4 | 7 |
+| Q-06 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 5 |
+| Q-07 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-08 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 4 |
+| Q-09 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-10 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 3 | 3 |
+| Q-11 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 10 |
+| Q-12 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-13 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 9 |
+| Q-14 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-15 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 7 |
+| Q-16 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 4 |
+| Q-17 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 8 |
+| Q-18 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 3 | 3 |
+| Q-19 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | 4 | 7 |
+| Q-20 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | 4 | 10 |
+
+Two more facts from the logs that the table hides:
+- **S1 picked the right winner in 10/20 questions (both runs)**, but the number was right only once. Q-10 is a plain subtraction of two founding years, 1845 − 1837.
+- **S2, single samples:** 94/100 samples correct in run 1 and 91/100 in run 2. All 15 wrong samples come from just four questions: Q-05, Q-08, Q-13, Q-20. S3 had **0 tool errors** in 264 tool calls (131 in run 1, 133 in run 2).
+
+**Why twenty questions, and why this rule.** Twenty is what the brief gives. It is enough to separate a strategy that fails almost everything (S1, 2/40) from strategies that almost never fail. It is *not* enough to rank S2 against S3; see C4. The name must match exactly, because the deliberate traps (look-alike names, the wrong winner) produce name errors. The ±1 tolerance in the last digit only absorbs rounding differences between my 3-decimal answers and the reference. Every trap answer (uncorrected area, archived population, m³ read as ML) misses by far more than that, so the tolerance never turns a trap into a pass.
 
 ---
 
@@ -343,23 +358,71 @@ Why this rule: the name is exact, because the traps (Ossbridge/Ossford, wrong wi
 
 ### C1 — Does the tool description matter?
 
+`python run.py --name c1_vague --strategies s3 --vague --questions Q-02 Q-03 Q-08 Q-09 Q-18`. Only the top-level `lookup` description changed, to `"Looks things up."`. The schema (with its `enum` of fields and the `district` property description), the calculator, the prompts and the model stayed the same. I picked the five questions with a trap or a special case: Q-02 (archived Tarnvale), Q-03 (Lindenmoor in m³), Q-08 (regional tariff), Q-09 (correction), Q-18 (projection). The baseline is S3 in run 1. Table by `python analyze.py --c1 run1 c1_vague`.
+
 | Question | Calls (your description) | Calls (vague) | Answer (yours) | Answer (vague) |
 |---|---:|---:|---|---|
-| | | | | |
+| Q-02 | 6 (3 rounds) | 7 (4 rounds) | Harrowfield 1.687 ✓ | Harrowfield 1.687 ✓ |
+| Q-03 | 6 (3 rounds) | 7 (4 rounds) | Lindenmoor 5.34 ✓ | Lindenmoor 5.34 ✓ |
+| Q-08 | 4 (3 rounds) | 8 (5 rounds) | Brightwater 72.456 ✓ | Brightwater 72.456 ✓ |
+| Q-09 | 7 (4 rounds) | 7 (4 rounds) | Millbrook 0.556 ✓ | Millbrook 0.556 ✓ |
+| Q-18 | 3 (3 rounds) | 3 (3 rounds) | yes 40013.4 ✓ | yes 40013.4 ✓ |
+
+**What changed.** The answers did not change (5/5 both times). The number of calls, the rounds and the cost did. Together the five questions used 37,017 input tokens with the vague description and 30,298 with mine (+22 %), although each vague request is ~190 tokens *shorter* (the tools add 864 instead of 1,055 tokens, `outputs/tool_tokens.json`).
+
+- **Q-08 is where the description mattered.** Only my description says *"For the household water tariff use district="region""*. With the vague one, the model first asked for `lookup(Brightwater, water_tariff_tenge_per_m3)` and `lookup(Millbrook, water_tariff_tenge_per_m3)`. Both came back as errors: `field 'water_tariff_tenge_per_m3' is region-wide; use district="region"`. In round 2 it retried with `region` and got 142.35. That is 2 wasted calls, 2 extra rounds and 9,854 instead of 5,484 input tokens (+80 %). It recovered only because the **error message** told it what to do. Without that, the vague description would have been a wrong or unanswered question.
+- **Q-02 and Q-03:** the model took one extra round. With my description it finished after the two per-district calculations, doing the difference in its head at the end (1.687, 5.340). With the vague one it made a third `calculate` call for the difference (`7.8974751522 - 6.2100157705`). Same answer, one more round.
+- **Q-09 and Q-18: identical** calls and inputs.
+
+**Why so little changed:** most of what the model needs is in the *schema*, not in the description. The `enum` lists the ten field names (`area_km2`, `water_use_2025_megalitres`, …), and the `district` property lists the 12 names. So even "Looks things up." leaves an almost self-explaining tool. The things only the description said, like the region convention and "trust the value, corrections are applied", were exactly where behaviour changed. My prediction would be a much bigger effect for a free-text `lookup(query)` tool, where the description is the only guide. I did not test that.
 
 ### C2 — Three mistakes explained
 
+**S1 (direct) — Q-09, wrong.** `outputs/run1/s1/Q-09.json`: `{"name": "Millbrook", "number": 9.036}` (correct: Millbrook, 0.6). 21 output tokens, no working. The winner is right, the number is meaningless: it is neither density nor difference. The reason is computational, not a missing fact. A model produces one token at a time, and every token gets the same fixed amount of computation. To get 0.556 it must divide 44,675 by 921.4, divide 37,203 by 758.6 and subtract, which needs intermediate results written down somewhere. In S1 the JSON leaves nowhere to put them, so the model can only *guess* a number that "looks right". That is why S1 got the winner right in 10/20 (a comparison can often be judged roughly) but the number in only 1/20. The one success, Q-10 (1845 − 1837 = 8), is the only question whose arithmetic fits into one step. This also explains the B4 smoke test: given the chance, Haiku *wrote* the working (381 tokens) and got Q-09 right. Visible text is the model's only working memory when thinking is off.
+
+**S2 (think and vote) — Q-05 in run 2, wrong.** `outputs/run2/s2/Q-05.json`. Sample 1 does the right thing with the right facts, then divides badly: Stonecairn 2,884,600,000 / 14,926 *"≈ 193,256.333"* (correct: 193,260.08), Coldharbour *"≈ 207,501.535"* (correct: 207,495.40). Then it "verifies": *"14,926 × 193,256 = 2,884,596,... ; … Confirmed ≈ 193,256.333."* The "verification" is itself made up; it trails off into "..." exactly where the digits would show the error. The difference becomes 14,245.202 instead of 14,235.3. The 5 samples were 14245.202, 14.235, 14208.995, **14235.314**, **14235.315**. Two samples were right, but they differ in the 3rd decimal, so under my exact-match vote all five keys were different. The tie went to the earliest sample, which was wrong.
+
+*Why voting fixes some mistakes but not others.* Voting reduces **variance**: if each sample is right with probability *p* > 0.5 and the errors scatter, the majority of 5 is right with probability Σ_{k≥3} C(5,k)pᵏ(1−p)⁵⁻ᵏ. At my measured per-sample accuracy (185/200 = 92.5 %) that is 99.6 %, and that is what happened on Q-13. There one sample wrote `-4.159` (the loss as a negative number) and four wrote `4.159`, so the vote fixed it. Voting stops working in three cases, and my runs show each:
+1. **when *p* is near or below 0.5 on that question**: Q-05 run 2 had 2/5 right. At p = 0.4 the majority of 5 is right only 32 % of the time;
+2. **when the errors are correlated**: Q-20 run 1 had *two* samples making the *same* scale error, 175,497 tenge written as *"≈ 175.49717"*, both ending in `2.993`. A repeated wrong answer outvotes scattered right ones;
+3. **when right answers do not compare equal**: continuous numbers with rounding noise (14235.314 vs 14235.315) split the vote. Re-voting the same saved samples with a 0.05 % tolerance (`python analyze.py --revote run1 run2`, `outputs/s2_revote.md`, offline, no new calls) gives 20/20 in both runs. But Q-20 run 1 is then a 2–2 tie between `2993.3x` and `2.993`, which wins only by sample order, so that "fix" is luck. The rule in the table stays the one I fixed before the run.
+
+Voting cannot remove a **bias**. Every sample does long division "in its head", so every sample has the same kind of arithmetic error, and averaging five biased estimates does not unbias them.
+
+**S3 (tools) — no wrong answer, so its most expensive question: Q-20** (run 1, 9,745 input + 946 output tokens, $0.00145, 6.0 s). The log shows 6 `lookup`s in round 1 (budget and population for 3 districts), 3 per-resident divisions in round 2 (`9284.5 * 1000000 / 52904` → 175497.1268713141, …), the difference in round 3 (`178490.4697072839 - 175497.1268713141` → 2993.3428359698), and the answer in round 4. This is the same division that broke S2 in Q-20 run 1. Here the model only *writes* the expression; the calculator computes it. The arithmetic error is therefore **bounded by floating point**, about 1e-10, whatever the model's skill at long division. The model can still choose the wrong expression, but it can no longer get the right expression wrong. That is why S3 had zero numeric errors.
+
+*Why it needed 4 rounds:* the rounds follow the dependency depth of the problem, not the number of facts. Facts → per-district metrics → difference → answer. Calls at the same level go in parallel; the next level has to wait for the results. *Why each round costs more:* the API is stateless, so every round resends the whole conversation, including all earlier tool calls and results. Q-20's input grew 1,325 → 2,479 → 2,872 → 3,069. The big jump after round 1 is the six `lookup` results with their evidence sentences plus the model's own 485 output tokens. The total input therefore grows roughly with the *square* of the number of rounds, which is why the round limit is also a cost limit.
+
 ### C3 — Which strategy I would use, and what would change it
+
+**I would use S3 (tools).** It was correct on 40/40 question-runs, cost $0.0207 per 20 questions (2.75× cheaper than S2), and its accuracy does not rely on the model's arithmetic. The traps are handled by tested code, not by the model noticing them.
+
+- **Against S1:** S1 is the cheapest ($0.0070) and the fastest (1.0 s median), but it got 2/40. A direct answer has no room for the multi-step arithmetic these questions need (C2). Cheap and wrong is not cheap.
+- **Against S2:** S2 is almost as accurate (38/40), but it costs 2.75× more than S3 and 8.2× more than S1. The documents are sent 5 times, and five reasoning chains cost 121× S1's output tokens. Its remaining errors are exactly the kind voting cannot fix: correlated, bias-type arithmetic errors (Q-20) and splits on continuous answers (Q-05). S2 is faster than S3 (3.0 s vs 4.8 s median, because the samples run in parallel while S3's rounds are sequential). For 20 questions that difference does not matter.
+
+**What would change my choice:**
+
+| Situation | What I would pick, and why |
+|---|---|
+| **1,000× more documents** (~3M tokens) | **S3, even more clearly.** S1/S2 can no longer even fit the documents into Haiku's 1M context, and S2 would cost about 1,000× more per question. S3's cost does not depend on corpus size; `lookup` would need a real index (see final question 6). |
+| **Strict time limit, e.g. < 3 s per question** | **S2 with k = 1–3 in parallel** (or plain single-sample step-by-step). S3's 4 sequential rounds took ~4.8 s. One step-by-step sample was right 92.5 % of the time with a median of 2.4 s. That is a deliberate accuracy-for-latency trade. |
+| **Questions with no arithmetic** (look up one fact, like Q-10's founding years, or "how many schools has Redfen?") | **S1.** The one thing S1 did get right was the one-step question. Without computation the direct answer is enough, at ⅓ of S3's cost and ⅕ of its time. |
+| **Questions my `lookup` cannot express** (free text: "which districts lie on the Oss?", "what does NR-00 say about archives?") | **S2** (or S3 with a text-search `lookup`). My structured tool only knows ten fields, so it would fail where the documents in the prompt still work. |
+| **Very small budget** | still **S3**: it is already cheaper than S2 at higher accuracy, and S1 is not an option at 5 %. |
 
 ### C4 — How sure I can be
 
+- **How different were the two runs?** The scores were identical: S1 1/1, S2 19/19, S3 20/20. Tokens differed by at most 2.4 % (S2 output 48,942 vs 47,808; S3 input 144,432 vs 142,430), time by under 4 %. But the identical S2 score hides real variance. S2 failed **different** questions (Q-20 in run 1, Q-05 in run 2), and its single-sample accuracy moved from 94 % to 91 %. So 2 of 20 S2 outcomes flipped between runs. S1 was deterministic in practice (the same wrong answers), and S3 was stable.
+- **Is the gap between the two best strategies bigger than that?** No. S3 vs S2 is 1 question per run, the same size as the run-to-run flips inside S2. Pooled over both runs, S3 = 40/40 (95 % Wilson interval **91.2 %–100 %**) and S2 = 38/40 (**83.5 %–98.6 %**). The intervals overlap almost completely. A paired sign test on the 2 discordant questions gives p = 0.5. So I **cannot claim from accuracy that S3 beats S2**; my choice of S3 rests on cost and on the principle (bounded arithmetic error), not on the 1-question gap. The S1 result *is* solid: 2/40 (1.4 %–16.5 %) does not overlap either of the others.
+- **How many questions would I need?** If S2's true error rate is about the 5 % I measured and S3's is about 0, a sign test needs at least **6 discordant questions all favouring S3** to reach p < 0.05 (0.5⁶ × 2 = 0.031). At 5 % that takes about **120 questions**, more with real noise; 150–200 to be comfortable. It would also have to be a *new* set of questions: my 20 share one corpus, and all of S2's errors come from one family (large-number divisions: Q-05, Q-08, Q-20), so they are not 20 independent tests. Things this comparison cannot settle at all: another model (a stronger one would probably close the S2 gap; a weaker one could also make S3 fail by choosing wrong expressions), other temperatures (not settable here), and other values of k.
+
 ### Final questions
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
+1. **When the model sends a `tool_calls` message, what has actually run so far?** Nothing except the model itself. The `tool_use` blocks are just text the model generated in the tool format: a request. No lookup or calculation has happened. In my Q-09 log, round 1 ends with `stop_reason: "tool_use"` and four `tool_use` blocks. The four lookups ran only afterwards, in *my* loop, taking 0.06–0.11 ms each, and the model saw their values only in round 2.
+2. **Why does `arguments` arrive as a string, and what goes wrong if you pass it straight into your function?** The model can only generate text, so the arguments are JSON *text*; in OpenAI's API they reach the client as a raw string. Passing that string straight into `lookup(**args)` fails (a string is not a mapping), and `calculate(args)` would try to evaluate `{"expression": "…"}` itself. Worse, the JSON may be invalid, have missing or extra keys, or wrong types. Anthropic's SDK, which I used, already parses `input` into a `dict`, so the "string" step is hidden. My loop still validates every input before running anything (`validate_args`: object, required keys, no extra keys, string types, enum), and it also accepts a JSON string (tested in `test_loop_validation_rejects_bad_arguments`). In 264 real calls nothing invalid arrived, but nothing in the API *guarantees* that, because I did not use `strict: true`.
+3. **How many tokens do the two tool definitions add to every S3 request? Measure it.** **1,055 tokens.** `python measure_tools.py` counts the first Q-09 request with `count_tokens`: 248 tokens without tools, 1,303 with tools (`outputs/tool_tokens.json`). This includes the instructions the API adds on its own when tools are present, not only my JSON. With the vague `lookup` description it is 864. Because the whole request is resent each round, a 4-round question pays this about 4 times, ~4,200 tokens. Over run 1 (71 rounds) the tool definitions make up 1,055 × 71 / 144,432 ≈ **52 % of all S3 input tokens**. Still, the full first S3 request (1,303) is far smaller than S1/S2's request with the documents (3,200).
+4. **How much more did S2 cost than S1?** Run 1: $0.0570 vs $0.0070, **8.2× (+$0.050)**. Run 2: 8.1×. Input tokens are 4.8× (325,260 vs 67,552): five samples of the same 3.2k-token prompt, slightly less than 5× because S1's prompt also carries the JSON schema. Output tokens are **121×** (48,942 vs 403): S1 answers in ~20 tokens, each S2 sample writes ~490 tokens of reasoning. Output is 5× the price of input, so S2's bill is 57 % input ($0.0325) and 43 % output ($0.0245). The cost of "think and vote" is k times the prompt *plus* k reasoning chains.
+5. **Which question needed the most rounds in S3, and why?** No question needed more than 4 rounds (11 of 20 used 4, the rest 3), so none came near the limit of 8. The most *tool calls* were in **Q-11 and Q-20 (10 each)**: 3 districts × 2 facts = 6 lookups, 3 per-district calculations, 1 difference. They still needed only 4 rounds, because the number of rounds equals the dependency depth (facts → metrics → difference → answer), not the number of facts: calls at the same level run in one round. 3-round questions merged two levels: Q-08 put the whole difference into one expression, and Q-10 and Q-18 need only one calculation. The most rounds anywhere was 5, in C1 Q-08 with the vague description: one extra round after the two error results.
+6. **What would I change in `lookup` if there were 100,000 documents?** My `lookup` relies on a fixed rule (one profile per district, one sentence per field, matched by regex) and on a scan over all documents when building the index. For 100,000 documents I would: build the index **offline** into a database (district → field → value, source, date, superseded-by), so a call is one keyed query and not a pass over the text. Extract values with a tested parser per document type, with logged failures, instead of a handful of regexes. Keep the archive/correction rules as data: every record has `valid_from` and `superseded_by`, so "never archived, corrections win" stays a query condition. Add a second, **search-style** tool (`search(query, k=5)` over an embedding or BM25 index, returning short passages with ids) for questions the fields do not cover. Return at most a few results with the source, never whole documents. Paginate, and let the name matcher report ambiguity, because with more districts look-alike names become common.
+7. **What stops my `calculate` from running dangerous code? Could the model still make it misbehave?** It never calls `eval`/`exec`. It parses the string with `ast.parse(..., mode="eval")` and walks the **whole tree before evaluating anything**. Only `Expression`, `BinOp`, `UnaryOp`, numeric `Constant` and the 6 operators I listed are allowed, so names, calls, attributes, subscripts, strings, booleans and lambdas are rejected (`__import__('os')…` → `not allowed in expression: Call`, `(1).__class__` → `Attribute`). The evaluator then caps exponents at 100 *before* computing (`9**9**9` → refused in < 0.5 s), results at 1e15, input at 200 characters / 100 nodes, and turns division by zero into an error. What the model *can* still do: make it compute the wrong thing correctly (a wrong number copied from a lookup, or swapped operands), get a float-rounding answer (`0.1 + 0.2`), or call it a thousand times. That last one is limited by my round limit, not by the calculator. It cannot make it read files, run commands or hang.
+8. **For which kind of question did tools help most, and for which not at all?** They helped most on **multi-step arithmetic with large numbers**: budget per resident (Q-05, Q-20), water cost in million tenge (Q-08), percentage changes (Q-13). These were exactly where S2's samples failed (all 15 wrong S2 samples are in Q-05, Q-08, Q-13, Q-20) and S1 failed completely, while S3 got all of them right in both runs. Tools also guarded the traps by construction (Q-02 archived Tarnvale, Q-03 m³, Q-09 correction). Here, though, S2 coped well too, because the documents were in its prompt and it read the correction notice. They did **not** help on **one-step questions**. On Q-10 (1845 − 1837) every strategy was right, including S1 with 21 output tokens, $0.00035 and 1.5 s. S3 spent 3 rounds and 3 tool calls on the same answer: 1.5× the tokens (5,058 vs 3,382), 1.8× the cost ($0.00063) and 2.2× the time (3.3 s).
