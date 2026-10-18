@@ -1,0 +1,36 @@
+{
+  "question": "In 2025, which district's households used more water per resident per day, Lindenmoor or Kelmarsh, and by how many litres per resident per day?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-03",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Kelmarsh",
+      79.152
+    ],
+    "expected": [
+      "Lindenmoor",
+      5.3
+    ],
+    "input_tokens": 3376,
+    "output_tokens": 22,
+    "cost": 0.0003486,
+    "seconds": 0.9316210999968462,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "In 2025, which district's households used more water per resident per day, Lindenmoor or Kelmarsh, and by how many litres per resident per day?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3376,
+        "output_tokens": 22,
+        "seconds": 0.9315634000231512,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Kelmarsh\", \"number\": 79.152}",
+        "text": "ANSWER: Kelmarsh | 79.152000"
+      }
+    ]
+  }
+}

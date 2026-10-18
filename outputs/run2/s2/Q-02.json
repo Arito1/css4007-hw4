@@ -1,0 +1,88 @@
+{
+  "question": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-02",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Harrowfield",
+      1.687
+    ],
+    "expected": [
+      "Harrowfield",
+      1.69
+    ],
+    "input_tokens": 16285,
+    "output_tokens": 2501,
+    "cost": 0.002879,
+    "seconds": 3.065006099990569,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3257,
+        "output_tokens": 618,
+        "seconds": 3.0622731000185013,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n\n- Tarnvale (NR-03, 2025 profile): 2020 census population 67,214; 2025 census population 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census population 83,609; 2025 census population 90,212.\n- The ARCHIVED 2019 Tarnvale profile (NR-13) gives only a 2019 estimate, so it is not used.\n\nCalculations:\n\nTarnvale growth:\n- Change = 71,388 − 67,214 = 4,174\n- Percentage = 4,174 / 67,214 × 100 = 6.2099...% ≈ 6.210%\n\nHarrowfield growth:\n- Change = 90,212 − 83,609 = 6,603\n- Percentage = 6,603 / 83,609 × 100 = 7.8970...% ≈ 7.897%\n\nLet me verify these more precisely:\n- 4,174 / 67,214: 67,214 × 0.0621 = 4,174.0 (67,214 × 0.06 = 4,032.84; 67,214 × 0.0021 = 141.15; total 4,173.99). So ≈ 6.2100%.\n- 6,603 / 83,609: 83,609 × 0.079 = 6,605.11, slightly high; 83,609 × 0.0789 = 6,596.74; difference 6.26 / 83,609 ≈ 0.0000749. So ≈ 7.8975%.\n\nComparison:\n- Harrowfield grew faster, at about 7.897%, versus Tarnvale at about 6.210%.\n- Difference = 7.8975 − 6.2100 ≈ 1.6875, which rounds to 1.688 percentage points.\n\nHarrowfield grew faster than Tarnvale by roughly 1.688 percentage points.\n\nANSWER: Harrowfield | 1.688",
+        "parsed": [
+          "Harrowfield",
+          1.688
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 571,
+        "seconds": 2.7552865000325255,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): 2020 census 67,214; 2025 census 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census 83,609; 2025 census 90,212.\n- The archived 2019 Tarnvale profile (NR-13) is superseded and not used; it gives only a 2019 estimate, not a 2020 census figure.\n\nCalculations:\n- Tarnvale growth: (71,388 − 67,214) / 67,214 = 4,174 / 67,214 ≈ 0.062107... → 6.2107%\n- Harrowfield growth: (90,212 − 83,609) / 83,609 = 6,603 / 83,609 ≈ 0.078970... → 7.8970%\n\nLet me refine these:\n- 4,174 / 67,214: 67,214 × 0.0621 = 4,173.99, so ≈ 0.062101 → 6.2101%\n- 6,603 / 83,609: 83,609 × 0.0789 = 6,596.73; remainder 6.27 / 83,609 ≈ 0.000075 → 0.078975 → 7.8975%\n\nComparison: Harrowfield grew faster. Difference = 7.8975 − 6.2101 = 1.6874 percentage points.\n\nChecking the subtraction more precisely: 4,174/67,214 = 0.0621008..., giving 6.21008%; 6,603/83,609 = 0.0789750..., giving 7.89750%. Difference = 1.68742 ≈ 1.687 points.\n\nHarrowfield grew faster, by about 1.687 percentage points.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 346,
+        "seconds": 1.9059831000049599,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03): 2020 census 67,214; 2025 census 71,388.\n- Harrowfield (NR-07): 2020 census 83,609; 2025 census 90,212.\n\nCalculations:\n- Tarnvale growth: (71,388 − 67,214) / 67,214 × 100 = 4,174 / 67,214 × 100 ≈ 6.2107%\n- Harrowfield growth: (90,212 − 83,609) / 83,609 × 100 = 6,603 / 83,609 × 100 ≈ 7.8971%\n\nLet me refine these:\n- 4,174 / 67,214 = 0.062106... → 6.2106%\n- 6,603 / 83,609 = 0.078970... → 7.8970%\n\nDifference: 7.8970 − 6.2106 ≈ 1.6864 percentage points.\n\nComparison: Harrowfield grew faster in percentage terms, by about 1.686 percentage points.\n\nANSWER: Harrowfield | 1.686",
+        "parsed": [
+          "Harrowfield",
+          1.686
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 375,
+        "seconds": 2.112470599997323,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): 2020 census 67,214; 2025 census 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census 83,609; 2025 census 90,212.\n- The ARCHIVED 2019 profiles are superseded and not used.\n\nCalculations:\n- Tarnvale growth: (71,388 − 67,214) / 67,214 = 4,174 / 67,214 = 0.062107... → 6.211%\n- Harrowfield growth: (90,212 − 83,609) / 83,609 = 6,603 / 83,609 = 0.078970... → 7.897%\n\nComparison: Harrowfield grew faster. The difference is 7.897% − 6.211% ≈ 1.686 percentage points.\n\nMore precisely:\n- 4,174 / 67,214 = 0.0621080... → 6.21080%\n- 6,603 / 83,609 = 0.0789703... → 7.89703%\n- Difference = 1.68623 → 1.686 percentage points\n\nANSWER: Harrowfield | 1.686",
+        "parsed": [
+          "Harrowfield",
+          1.686
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 591,
+        "seconds": 3.053251600009389,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale: 2020 census 67,214; 2025 census 71,388 (NR-03, 2025 profile; the archived 2019 estimate in NR-13 is superseded and not used).\n- Harrowfield: 2020 census 83,609; 2025 census 90,212 (NR-07).\n\nCalculations:\n- Tarnvale growth: (71,388 − 67,214) / 67,214 = 4,174 / 67,214 ≈ 0.062107... → 6.2107%\n- Harrowfield growth: (90,212 − 83,609) / 83,609 = 6,603 / 83,609 ≈ 0.078969... → 7.8969%\n\nLet me verify more precisely:\n- 4,174 / 67,214: 67,214 × 0.0621 = 4,173.99, so ≈ 0.062101... Computing: 4,174/67,214 = 0.0621 + (4,174 − 4,173.9894)/67,214 = 0.0621 + 0.0000001 ≈ 0.0621002 → 6.210%.\n- 6,603 / 83,609: 83,609 × 0.079 = 6,605.11, so slightly less: 0.079 − (2.11/83,609) ≈ 0.079 − 0.0000252 = 0.0789748 → 7.897%.\n\nComparison: Harrowfield grew faster in percentage terms. Difference = 7.8975 − 6.2100 ≈ 1.6875 percentage points.\n\nMore precisely: Harrowfield 7.89748%, Tarnvale 6.21002%, difference ≈ 1.68746 → 1.687 points.\n\nHarrowfield grew faster, by about 1.687 percentage points.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      }
+    ],
+    "vote": [
+      "Harrowfield",
+      1.687
+    ]
+  }
+}

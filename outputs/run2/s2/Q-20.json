@@ -1,0 +1,88 @@
+{
+  "question": "Of Ossbridge, Ashgrove and Harrowfield, which district had the largest 2025 budget per resident, and by how many tenge per resident did it exceed the lowest of the three?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-20",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Ashgrove",
+      2993.3
+    ],
+    "expected": [
+      "Ashgrove",
+      2993
+    ],
+    "input_tokens": 16335,
+    "output_tokens": 3809,
+    "cost": 0.0035380000000000003,
+    "seconds": 4.2131570999627,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Of Ossbridge, Ashgrove and Harrowfield, which district had the largest 2025 budget per resident, and by how many tenge per resident did it exceed the lowest of the three?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3267,
+        "output_tokens": 828,
+        "seconds": 3.6554413000121713,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025 budget and 2025 census population):\n\n- Ossbridge (NR-01): budget 9,284.5 million tenge; population 52,904 (2025 census).\n- Ashgrove (NR-10): budget 10,488.1 million tenge; population 58,760 (2025 census).\n- Harrowfield (NR-07): budget 16,021.7 million tenge; population 90,212 (2025 census).\n\nNo correction notices affect these three districts (NR-16 concerns Brightwater only), and the archived profiles are superseded, so these 2025 figures are the ones to use.\n\nBudget per resident (budget in million tenge × 1,000,000 ÷ population):\n\n- Ossbridge: 9,284.5 × 1,000,000 ÷ 52,904 = 9,284,500,000 ÷ 52,904 ≈ 175.4 thousand... let me compute precisely: 9,284,500,000 ÷ 52,904 ≈ 175,492.1 tenge per resident.\n- Ashgrove: 10,488,100,000 ÷ 58,760 ≈ 178,499.0 tenge per resident.\n- Harrowfield: 16,021,700,000 ÷ 90,212 ≈ 177,597.5 tenge per resident.\n\nLet me verify these more carefully:\n\n- Ossbridge: 52,904 × 175,000 = 9,258,200,000; remainder 26,300,000; 26,300,000 ÷ 52,904 ≈ 497.2. Total ≈ 175,497.2.\n- Ashgrove: 58,760 × 178,000 = 10,459,280,000; remainder 28,820,000; 28,820,000 ÷ 58,760 ≈ 490.5. Total ≈ 178,490.5.\n- Harrowfield: 90,212 × 177,000 = 15,967,524,000; remainder 54,176,000; 54,176,000 ÷ 90,212 ≈ 600.6. Total ≈ 177,600.6.\n\nRanking: Ashgrove (≈178,490.5) > Harrowfield (≈177,600.6) > Ossbridge (≈175,497.2).\n\nLargest is Ashgrove. Lowest is Ossbridge. Difference:\n\n178,490.5 − 175,497.2 = 2,993.3 tenge per resident (to one decimal; the more precise difference from the unrounded values is about 2,993.3).\n\nANSWER: Ashgrove | 2993.300",
+        "parsed": [
+          "Ashgrove",
+          2993.3
+        ]
+      },
+      {
+        "input_tokens": 3267,
+        "output_tokens": 595,
+        "seconds": 2.6214910999988206,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (budget in million tenge, population from 2025 census):\n\n- Ossbridge (NR-01): 2025 budget = 9,284.5 million tenge; 2025 population = 52,904.\n- Ashgrove (NR-10): 2025 budget = 10,488.1 million tenge; 2025 population = 58,760.\n- Harrowfield (NR-07): 2025 budget = 16,021.7 million tenge; 2025 population = 90,212.\n\nNo correction notices affect these three profiles (the Brightwater correction is unrelated).\n\nBudget per resident (tenge), converting million tenge to tenge by multiplying by 1,000,000:\n\n- Ossbridge: 9,284,500,000 / 52,904 = 175.4 approximately. Calculating precisely: 52,904 × 175 = 9,258,200; remainder 26,300; 26,300 / 52,904 = 0.49716. So 175.49716.\n- Ashgrove: 10,488,100,000 / 58,760 = 178.4 approximately. Calculating: 58,760 × 178 = 10,459,280; remainder 28,820; 28,820 / 58,760 = 0.49048. So 178.49048.\n- Harrowfield: 16,021,700,000 / 90,212 = 177.6 approximately. Calculating: 90,212 × 177 = 15,967,524; remainder 54,176; 54,176 / 90,212 = 0.60054. So 177.60054.\n\nComparison:\n- Largest per-resident budget: Ashgrove (178.49048).\n- Lowest of the three: Ossbridge (175.49716).\n- Difference: 178.49048 − 175.49716 = 2.99332, which rounds to 2.993.\n\nANSWER: Ashgrove | 2.993",
+        "parsed": [
+          "Ashgrove",
+          2.993
+        ]
+      },
+      {
+        "input_tokens": 3267,
+        "output_tokens": 1032,
+        "seconds": 4.205607799987774,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (budget in million tenge, population from 2025 census):\n\n- Ossbridge (NR-01): 2025 budget = 9,284.5 million tenge; 2025 population = 52,904.\n- Ashgrove (NR-10): 2025 budget = 10,488.1 million tenge; 2025 population = 58,760.\n- Harrowfield (NR-07): 2025 budget = 16,021.7 million tenge; 2025 population = 90,212.\n\nNo correction notice affects these figures (NR-16 concerns only Brightwater's area), and none of these are archived profiles.\n\nBudget per resident (tenge = million tenge × 1,000,000 / residents):\n\n- Ossbridge: 9,284.5 × 1,000,000 / 52,904 = 9,284,500,000 / 52,904 ≈ 175.4 tenge... let me compute precisely: 52,904 × 175 = 9,258,200; remainder 26,300; 26,300 / 52,904 ≈ 0.4971. So ≈ 175,497.1 tenge per resident. (Check: 9,284,500,000 / 52,904 ≈ 175,497.1.)\n- Ashgrove: 10,488,100,000 / 58,760 ≈ 178,490.6. (58,760 × 178,000 = 10,459,280,000; remainder 28,820,000; /58,760 ≈ 490.5; so ≈ 178,490.5.)\n- Harrowfield: 16,021,700,000 / 90,212 ≈ 177,600.1. (90,212 × 177,000 = 15,967,524,000; remainder 54,176,000; /90,212 ≈ 600.6; so ≈ 177,600.6.)\n\nRefining the values more carefully:\n\n- Ossbridge: 9,284,500,000 / 52,904. 52,904 × 175,497 = 9,284,487,... compute 52,904 × 175,497 = 52,904 × 175,000 = 9,258,200,000; 52,904 × 497 = 26,293,288; total 9,284,493,288. Remainder 6,712; /52,904 ≈ 0.127. So ≈ 175,497.127.\n- Ashgrove: 58,760 × 178,490 = 10,488,072,400 (58,760 × 178,000 = 10,459,280,000; 58,760 × 490 = 28,792,400; sum 10,488,072,400). Remainder 27,600; /58,760 ≈ 0.470. So ≈ 178,490.470.\n- Harrowfield: 90,212 × 177,600 = 16,021,651,200. Remainder 48,800; /90,212 ≈ 0.541. So ≈ 177,600.541.\n\nComparison: Ashgrove (178,490.470) has the largest budget per resident, above Harrowfield (177,600.541) and Ossbridge (175,497.127), the lowest.\n\nDifference from the lowest (Ossbridge): 178,490.470 − 175,497.127 = 2,993.343 tenge per resident.\n\nANSWER: Ashgrove | 2993.343",
+        "parsed": [
+          "Ashgrove",
+          2993.343
+        ]
+      },
+      {
+        "input_tokens": 3267,
+        "output_tokens": 714,
+        "seconds": 3.232123599969782,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025 budget and 2025 census population, all from the 2025 profiles; budgets are in million tenge, so I convert to tenge by multiplying by 1,000,000):\n\n- Ossbridge (NR-01): budget 9,284.5 million tenge; population 52,904 (2025 census).\n- Ashgrove (NR-10): budget 10,488.1 million tenge; population 58,760 (2025 census).\n- Harrowfield (NR-07): budget 16,021.7 million tenge; population 90,212 (2025 census).\n\nNo correction notices affect these figures (NR-16 concerns Brightwater only), and the archived profiles are superseded and not used.\n\nBudget per resident:\n\n- Ossbridge: 9,284.5 × 1,000,000 / 52,904 = 9,284,500,000 / 52,904 ≈ 175,478.6... Let me compute precisely: 52,904 × 175,000 = 9,258,200,000; remainder 26,300,000; 26,300,000 / 52,904 ≈ 497.2. So ≈ 175,497.2.\n- Ashgrove: 10,488,100,000 / 58,760. 58,760 × 178,000 = 10,459,280,000; remainder 28,820,000; /58,760 ≈ 490.5. So ≈ 178,490.5.\n- Harrowfield: 16,021,700,000 / 90,212. 90,212 × 177,000 = 15,967,524,000; remainder 54,176,000; /90,212 ≈ 600.5. So ≈ 177,600.5.\n\nLargest budget per resident: Ashgrove, at about 178,490.5 tenge.\nLowest of the three: Ossbridge, at about 175,497.2 tenge.\n\nDifference: 178,490.5 − 175,497.2 ≈ 2,993.3 tenge per resident.\n\nComparing the three: Ashgrove (178,490.5) > Harrowfield (177,600.5) > Ossbridge (175,497.2), so Ashgrove is the largest and Ossbridge the lowest.\n\nANSWER: Ashgrove | 2993.300",
+        "parsed": [
+          "Ashgrove",
+          2993.3
+        ]
+      },
+      {
+        "input_tokens": 3267,
+        "output_tokens": 640,
+        "seconds": 3.1222695999895222,
+        "stop_reason": "end_turn",
+        "text": "**Facts needed (budget in million tenge, population 2025 census):**\n\n- Ossbridge (NR-01): 2025 budget = 9,284.5 million tenge; 2025 population = 52,904\n- Ashgrove (NR-10): 2025 budget = 10,488.1 million tenge; 2025 population = 58,760\n- Harrowfield (NR-07): 2025 budget = 16,021.7 million tenge; 2025 population = 90,212\n\nNo correction notices affect these three districts (NR-16 concerns Brightwater only), and none of these are archived profiles.\n\n**Budget per resident (tenge = budget in million × 1,000,000 / population):**\n\n- Ossbridge: 9,284.5 × 1,000,000 / 52,904 = 9,284,500,000 / 52,904 ≈ 175.4993... → 175.499 tenge per resident\n\nLet me compute more precisely: 52,904 × 175 = 9,258,200; remainder 26,300; 26,300 / 52,904 = 0.49717... So 175.497 (rounded to 3 dp).\n\n- Ashgrove: 10,488,100,000 / 58,760. 58,760 × 178 = 10,459,280; remainder 28,820; 28,820 / 58,760 = 0.49053... So 178.491.\n\n- Harrowfield: 16,021,700,000 / 90,212. 90,212 × 177 = 15,967,524; remainder 54,176; 54,176 / 90,212 = 0.6005... So 177.601.\n\n**Comparison:**\n\n- Largest per-resident budget: Ashgrove at 178.491 tenge per resident (Harrowfield is 177.601, Ossbridge is 175.497).\n- Lowest of the three: Ossbridge at 175.497.\n- Difference: 178.491 − 175.497 = 2.994 tenge per resident.\n\nANSWER: Ashgrove | 2.994",
+        "parsed": [
+          "Ashgrove",
+          2.994
+        ]
+      }
+    ],
+    "vote": [
+      "Ashgrove",
+      2993.3
+    ]
+  }
+}

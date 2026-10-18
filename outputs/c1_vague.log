@@ -1,0 +1,9 @@
+s3 Q-02: OK  pred=['Harrowfield', 1.687] expected=['Harrowfield', 1.69] 5.4s $0.00107
+s3 Q-03: OK  pred=['Lindenmoor', 5.34] expected=['Lindenmoor', 5.3] 5.3s $0.00113
+s3 Q-08: OK  pred=['Brightwater', 72.456] expected=['Brightwater', 72.46] 5.7s $0.00140
+s3 Q-09: OK  pred=['Millbrook', 0.556] expected=['Millbrook', 0.6] 4.6s $0.00108
+s3 Q-18: OK  pred=['yes', 40013.391] expected=['yes', 40013] 3.6s $0.00061
+
+| Strategy | Correct | Unanswered | Input tokens | Output tokens | Median s | Total s | Cost ($) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| s3 | 5/5 | 0 | 37017 | 3177 | 5.25 | 24.7 | 0.0053 |

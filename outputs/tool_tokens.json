@@ -1,0 +1,8 @@
+{
+  "question": "Q-09",
+  "s3_first_request_without_tools": 248,
+  "s3_first_request_with_tools": 1303,
+  "tool_definitions_add": 1055,
+  "tool_definitions_add_vague_lookup": 864,
+  "s1_s2_request_with_documents": 3200
+}

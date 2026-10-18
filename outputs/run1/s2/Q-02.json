@@ -1,0 +1,88 @@
+{
+  "question": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-02",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Harrowfield",
+      1.687
+    ],
+    "expected": [
+      "Harrowfield",
+      1.69
+    ],
+    "input_tokens": 16285,
+    "output_tokens": 2226,
+    "cost": 0.0027415,
+    "seconds": 3.0139916999614798,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3257,
+        "output_tokens": 410,
+        "seconds": 2.188311900012195,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n\n- Tarnvale (NR-03, 2025 profile): 2020 census population 67,214; 2025 census population 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census population 83,609; 2025 census population 90,212.\n- The ARCHIVED 2019 Tarnvale profile (NR-13) gives only a 2019 estimate, so it is not used.\n\nCalculations:\n\nTarnvale growth:\n(71,388 − 67,214) / 67,214 = 4,174 / 67,214 ≈ 0.062100... → 6.210%\n\nLet me compute more precisely: 4,174 / 67,214 = 0.0621014... → 6.210%\n\nHarrowfield growth:\n(90,212 − 83,609) / 83,609 = 6,603 / 83,609 ≈ 0.078969... → 7.897%\n\nMore precisely: 6,603 / 83,609 = 0.0789704... → 7.897%\n\nComparison:\nHarrowfield − Tarnvale = 7.897 − 6.210 = 1.687 percentage points.\n\nHarrowfield grew faster, by about 1.687 percentage points.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 422,
+        "seconds": 2.084805199992843,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n\n- Tarnvale (NR-03, 2025 profile): 2020 census population 67,214; 2025 census population 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census population 83,609; 2025 census population 90,212.\n- The archived 2019 Tarnvale profile (NR-13) is superseded and not used.\n\nCalculations:\n\nTarnvale growth:\n- Change = 71,388 − 67,214 = 4,174\n- Percentage growth = 4,174 / 67,214 × 100 ≈ 6.2100%\n\nHarrowfield growth:\n- Change = 90,212 − 83,609 = 6,603\n- Percentage growth = 6,603 / 83,609 × 100 ≈ 7.8970%\n\nComparison:\n- Harrowfield grew faster in percentage terms.\n- Difference = 7.8970 − 6.2100 ≈ 1.687 percentage points.\n\nChecking more precisely: 4,174 / 67,214 = 0.062100 (6.2100%), and 6,603 / 83,609 = 0.078970 (7.8970%). Difference = 1.6870 percentage points, which rounds to 1.687.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 402,
+        "seconds": 2.0848594999988563,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03): 2020 census population 67,214; 2025 census population 71,388.\n- Harrowfield (NR-07): 2020 census population 83,609; 2025 census population 90,212.\n\nCalculations:\n\nTarnvale growth:\n- Change = 71,388 − 67,214 = 4,174\n- Percentage growth = 4,174 / 67,214 × 100 ≈ 6.2100%\n\nHarrowfield growth:\n- Change = 90,212 − 83,609 = 6,603\n- Percentage growth = 6,603 / 83,609 × 100 ≈ 7.8971%\n\nComparison:\n- Harrowfield grew faster in percentage terms.\n- Difference = 7.8971 − 6.2100 ≈ 1.687 percentage points.\n\nChecking the figures more precisely:\n- 4,174 / 67,214 = 0.062101... → 6.2101%\n- 6,603 / 83,609 = 0.078971... → 7.8971%\n- Difference ≈ 1.6870 percentage points.\n\nHarrowfield grew faster, by about 1.687 percentage points.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 433,
+        "seconds": 2.392702499986626,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n\n- Tarnvale (NR-03, 2025 profile): 2020 census population 67,214; 2025 census population 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census population 83,609; 2025 census population 90,212.\n- The ARCHIVED 2019 profiles (NR-13) are superseded and not used.\n\nCalculations:\n\nTarnvale growth:\n(71,388 − 67,214) / 67,214 = 4,174 / 67,214 ≈ 0.062103... → 6.2103%\n\nHarrowfield growth:\n(90,212 − 83,609) / 83,609 = 6,603 / 83,609 ≈ 0.078971... → 7.8971%\n\nComparison:\nHarrowfield grew faster. Difference = 7.8971 − 6.2103 ≈ 1.6868 percentage points.\n\nMore precisely:\n- 4,174 / 67,214 = 0.0621031... → 6.21031%\n- 6,603 / 83,609 = 0.0789705... → 7.89705%\n- Difference ≈ 1.68674 → 1.687 (rounded to 3 decimal places)\n\nHarrowfield grew faster, by about 1.687 percentage points.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      },
+      {
+        "input_tokens": 3257,
+        "output_tokens": 559,
+        "seconds": 3.0047703000018373,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): 2020 census 67,214; 2025 census 71,388.\n- Harrowfield (NR-07, 2025 profile): 2020 census 83,609; 2025 census 90,212.\n- The archived 2019 Tarnvale profile (NR-13) is superseded and not used; no correction notice affects these population figures.\n\nCalculations:\n- Tarnvale growth: (71,388 − 67,214) / 67,214 = 4,174 / 67,214 = 0.062100... → 6.210%\n- Harrowfield growth: (90,212 − 83,609) / 83,609 = 6,603 / 83,609 = 0.078970... → 7.897%\n\nMore precisely:\n- 4,174 / 67,214 = 0.0621000... Let's compute: 67,214 × 0.0621 = 4,174.0 (67,214 × 0.06 = 4,032.84; × 0.0021 = 141.149; sum = 4,173.989), so the ratio ≈ 0.062100 + (0.011/67,214) ≈ 0.0621002 → 6.21002%.\n- 6,603 / 83,609: 83,609 × 0.079 = 6,605.11, slightly over, so ratio ≈ 0.079 − (2.11/83,609) ≈ 0.079 − 0.0000252 = 0.0789748 → 7.89748%.\n\nComparison: Harrowfield grew faster. Difference = 7.89748 − 6.21002 = 1.68746 percentage points → 1.687 when rounded to 3 decimal places.\n\nANSWER: Harrowfield | 1.687",
+        "parsed": [
+          "Harrowfield",
+          1.687
+        ]
+      }
+    ],
+    "vote": [
+      "Harrowfield",
+      1.687
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "question": "Of Redfen, Ashgrove and Millbrook, which district has the fewest pupils per school in 2025/26, and how many pupils per school separate the highest of the three from the lowest?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-11",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Redfen",
+      56.1
+    ],
+    "expected": [
+      "Redfen",
+      56.1
+    ],
+    "input_tokens": 16330,
+    "output_tokens": 1478,
+    "cost": 0.002372,
+    "seconds": 1.9822032999945804,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Of Redfen, Ashgrove and Millbrook, which district has the fewest pupils per school in 2025/26, and how many pupils per school separate the highest of the three from the lowest?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3266,
+        "output_tokens": 294,
+        "seconds": 1.7663305000169203,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 pupils and schools):\n\n- Redfen (NR-09): 10 schools, 3,147 pupils.\n- Ashgrove (NR-10): 24 schools, 8,837 pupils.\n- Millbrook (NR-11): 15 schools, 5,562 pupils.\n\nCalculations (pupils per school):\n\n- Redfen: 3,147 / 10 = 314.7\n- Ashgrove: 8,837 / 24 = 368.208333...\n- Millbrook: 5,562 / 15 = 370.8\n\nComparison:\n\n- Fewest pupils per school: Redfen (314.7).\n- Highest of the three: Millbrook (370.8).\n- Difference between highest and lowest: 370.8 − 314.7 = 56.1, i.e. 56.100 to 3 decimal places.\n\nANSWER: Redfen | 56.100",
+        "parsed": [
+          "Redfen",
+          56.1
+        ]
+      },
+      {
+        "input_tokens": 3266,
+        "output_tokens": 286,
+        "seconds": 1.8679695000173524,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 pupils and schools):\n\n- Redfen (NR-09): 3,147 pupils, 10 schools\n- Ashgrove (NR-10): 8,837 pupils, 24 schools\n- Millbrook (NR-11): 5,562 pupils, 15 schools\n\nCalculations (pupils per school):\n\n- Redfen: 3,147 / 10 = 314.7\n- Ashgrove: 8,837 / 24 = 368.208333...\n- Millbrook: 5,562 / 15 = 370.8\n\nComparison:\n\n- Fewest pupils per school: Redfen (314.7).\n- Highest: Millbrook (370.8).\n- Difference between highest and lowest: 370.8 − 314.7 = 56.1, which is 56.100 to 3 decimal places.\n\nANSWER: Redfen | 56.100",
+        "parsed": [
+          "Redfen",
+          56.1
+        ]
+      },
+      {
+        "input_tokens": 3266,
+        "output_tokens": 331,
+        "seconds": 1.9726681999745779,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 pupils and schools):\n\n- Redfen (NR-09): 10 schools, 3,147 pupils.\n- Ashgrove (NR-10): 24 schools, 8,837 pupils.\n- Millbrook (NR-11): 15 schools, 5,562 pupils.\n\nNo correction notices affect these figures; NR-16 concerns Brightwater only, and the archived profiles are superseded.\n\nCalculations (pupils per school):\n\n- Redfen: 3,147 / 10 = 314.700\n- Ashgrove: 8,837 / 24 = 368.208 (8,837 ÷ 24 = 368.2083…)\n- Millbrook: 5,562 / 15 = 370.800\n\nComparison:\n\n- Fewest pupils per school: Redfen (314.700).\n- Highest: Millbrook (370.800).\n- Gap between highest and lowest: 370.800 − 314.700 = 56.100.\n\nANSWER: Redfen | 56.100",
+        "parsed": [
+          "Redfen",
+          56.1
+        ]
+      },
+      {
+        "input_tokens": 3266,
+        "output_tokens": 294,
+        "seconds": 1.9656524999882095,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 pupils and schools):\n\n- Redfen (NR-09): 10 schools, 3,147 pupils.\n- Ashgrove (NR-10): 24 schools, 8,837 pupils.\n- Millbrook (NR-11): 15 schools, 5,562 pupils.\n\nCalculations (pupils per school):\n\n- Redfen: 3,147 / 10 = 314.7\n- Ashgrove: 8,837 / 24 = 368.208333...\n- Millbrook: 5,562 / 15 = 370.8\n\nComparison:\n\n- Fewest pupils per school: Redfen at 314.7.\n- Highest of the three: Millbrook at 370.8.\n- Gap between highest and lowest: 370.8 − 314.7 = 56.1, which is 56.100 to 3 decimal places.\n\nANSWER: Redfen | 56.100",
+        "parsed": [
+          "Redfen",
+          56.1
+        ]
+      },
+      {
+        "input_tokens": 3266,
+        "output_tokens": 273,
+        "seconds": 1.6375191999832168,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 pupils and schools):\n\n- Redfen (NR-09): 10 schools, 3,147 pupils.\n- Ashgrove (NR-10): 24 schools, 8,837 pupils.\n- Millbrook (NR-11): 15 schools, 5,562 pupils.\n\nCalculations (pupils per school):\n\n- Redfen: 3,147 / 10 = 314.7\n- Ashgrove: 8,837 / 24 = 368.208333...\n- Millbrook: 5,562 / 15 = 370.8\n\nComparison:\n\n- Fewest pupils per school: Redfen (314.7).\n- Highest: Millbrook (370.8).\n- Gap between highest and lowest: 370.8 − 314.7 = 56.1.\n\nANSWER: Redfen | 56.100",
+        "parsed": [
+          "Redfen",
+          56.1
+        ]
+      }
+    ],
+    "vote": [
+      "Redfen",
+      56.1
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "question": "Which district has more pupils per school in 2025/26, Ashgrove or Millbrook, and by how many pupils per school?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-04",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Ashgrove",
+      6.708
+    ],
+    "expected": [
+      "Millbrook",
+      2.59
+    ],
+    "input_tokens": 3370,
+    "output_tokens": 21,
+    "cost": 0.0003475,
+    "seconds": 1.090439299994614,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Which district has more pupils per school in 2025/26, Ashgrove or Millbrook, and by how many pupils per school?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3370,
+        "output_tokens": 21,
+        "seconds": 1.090394600003492,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Ashgrove\", \"number\": 6.708}",
+        "text": "ANSWER: Ashgrove | 6.708000"
+      }
+    ]
+  }
+}

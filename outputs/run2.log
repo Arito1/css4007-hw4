@@ -1,0 +1,66 @@
+s1 Q-01: XX  pred=['Ossbridge', 41.189] expected=['Ossbridge', 4.6] 1.5s $0.00035
+s1 Q-02: XX  pred=['Tarnvale', 6.148] expected=['Harrowfield', 1.69] 1.0s $0.00035
+s1 Q-03: XX  pred=['Kelmarsh', 79.152] expected=['Lindenmoor', 5.3] 0.9s $0.00035
+s1 Q-04: XX  pred=['Ashgrove', 12.0] expected=['Millbrook', 2.59] 1.1s $0.00035
+s1 Q-05: XX  pred=['Coldharbour', 42.153] expected=['Coldharbour', 14235] 1.1s $0.00035
+s1 Q-06: XX  pred=['yes', 13.0] expected=['yes', 14069] 1.1s $0.00035
+s1 Q-07: XX  pred=['Coldharbour', 52.462] expected=['Coldharbour', 18.5] 1.2s $0.00035
+s1 Q-08: XX  pred=['Brightwater', 0.0] expected=['Brightwater', 72.46] 1.2s $0.00035
+s1 Q-09: XX  pred=['Millbrook', 9.0] expected=['Millbrook', 0.6] 1.1s $0.00035
+s1 Q-10: OK  pred=['Stonecairn', 8.0] expected=['Stonecairn', 8] 1.5s $0.00035
+s1 Q-11: XX  pred=['Redfen', 314.7] expected=['Redfen', 56.1] 1.5s $0.00035
+s1 Q-12: XX  pred=['Harrowfield', 0.0] expected=['Tarnvale', 64.4] 1.0s $0.00035
+s1 Q-13: XX  pred=['Stonecairn', -3.547] expected=['Coldharbour', 4.16] 1.0s $0.00035
+s1 Q-14: XX  pred=['Tarnvale', 43.946] expected=['Ashgrove', 4.9] 1.2s $0.00035
+s1 Q-15: XX  pred=['Kelmarsh', 40.641] expected=['Redfen', 17.61] 1.0s $0.00035
+s1 Q-16: XX  pred=['yes', 134.5] expected=['yes', 23.9] 1.0s $0.00035
+s1 Q-17: XX  pred=['Harrowfield', 3.636] expected=['Harrowfield', 884] 1.0s $0.00035
+s1 Q-18: XX  pred=['No', 40189.0] expected=['yes', 40013] 1.1s $0.00035
+s1 Q-19: XX  pred=['Redfen', 0.361] expected=['Lindenmoor', 0.035] 1.0s $0.00035
+s1 Q-20: XX  pred=['Harrowfield', 177.526] expected=['Ashgrove', 2993] 1.0s $0.00035
+s2 Q-01: OK  pred=['Ossbridge', 4.57] expected=['Ossbridge', 4.6] 2.9s $0.00254
+s2 Q-02: OK  pred=['Harrowfield', 1.687] expected=['Harrowfield', 1.69] 3.1s $0.00288
+s2 Q-03: OK  pred=['Lindenmoor', 5.34] expected=['Lindenmoor', 5.3] 4.6s $0.00369
+s2 Q-04: OK  pred=['Millbrook', 2.592] expected=['Millbrook', 2.59] 2.1s $0.00231
+s2 Q-05: XX  pred=['Coldharbour', 14245.202] expected=['Coldharbour', 14235] 3.6s $0.00325
+s2 Q-06: OK  pred=['yes', 14069.0] expected=['yes', 14069] 2.0s $0.00238
+s2 Q-07: OK  pred=['Coldharbour', 18.496] expected=['Coldharbour', 18.5] 3.2s $0.00292
+s2 Q-08: OK  pred=['Brightwater', 72.456] expected=['Brightwater', 72.46] 4.6s $0.00294
+s2 Q-09: OK  pred=['Millbrook', 0.556] expected=['Millbrook', 0.6] 3.4s $0.00279
+s2 Q-10: OK  pred=['Stonecairn', 8.0] expected=['Stonecairn', 8] 1.3s $0.00205
+s2 Q-11: OK  pred=['Redfen', 56.1] expected=['Redfen', 56.1] 2.0s $0.00237
+s2 Q-12: OK  pred=['Tarnvale', 64.392] expected=['Tarnvale', 64.4] 3.5s $0.00332
+s2 Q-13: OK  pred=['Coldharbour', 4.159] expected=['Coldharbour', 4.16] 2.7s $0.00268
+s2 Q-14: OK  pred=['Ashgrove', 4.845] expected=['Ashgrove', 4.9] 4.0s $0.00340
+s2 Q-15: OK  pred=['Redfen', 17.609] expected=['Redfen', 17.61] 2.0s $0.00228
+s2 Q-16: OK  pred=['yes', 23.9] expected=['yes', 23.9] 2.7s $0.00234
+s2 Q-17: OK  pred=['Harrowfield', 884.291] expected=['Harrowfield', 884] 4.1s $0.00356
+s2 Q-18: OK  pred=['yes', 40013.334] expected=['yes', 40013] 2.8s $0.00264
+s2 Q-19: OK  pred=['Lindenmoor', 0.035] expected=['Lindenmoor', 0.035] 2.5s $0.00255
+s2 Q-20: OK  pred=['Ashgrove', 2993.3] expected=['Ashgrove', 2993] 4.2s $0.00354
+s3 Q-01: OK  pred=['Ossbridge', 4.57] expected=['Ossbridge', 4.6] 4.9s $0.00110
+s3 Q-02: OK  pred=['Harrowfield', 1.687] expected=['Harrowfield', 1.69] 8.8s $0.00088
+s3 Q-03: OK  pred=['Lindenmoor', 5.34] expected=['Lindenmoor', 5.3] 4.3s $0.00090
+s3 Q-04: OK  pred=['Millbrook', 2.592] expected=['Millbrook', 2.59] 5.2s $0.00115
+s3 Q-05: OK  pred=['Coldharbour', 14235.314] expected=['Coldharbour', 14235] 5.2s $0.00116
+s3 Q-06: OK  pred=['yes', 14069.0] expected=['yes', 14069] 3.3s $0.00073
+s3 Q-07: OK  pred=['Coldharbour', 18.496] expected=['Coldharbour', 18.5] 4.9s $0.00113
+s3 Q-08: OK  pred=['Brightwater', 72.456] expected=['Brightwater', 72.46] 4.6s $0.00091
+s3 Q-09: OK  pred=['Millbrook', 0.556] expected=['Millbrook', 0.6] 3.9s $0.00091
+s3 Q-10: OK  pred=['Stonecairn', 8.0] expected=['Stonecairn', 8] 3.1s $0.00063
+s3 Q-11: OK  pred=['Redfen', 56.1] expected=['Redfen', 56.1] 5.5s $0.00137
+s3 Q-12: OK  pred=['Tarnvale', 64.392] expected=['Tarnvale', 64.4] 5.3s $0.00123
+s3 Q-13: OK  pred=['Coldharbour', 4.159] expected=['Coldharbour', 4.16] 5.7s $0.00113
+s3 Q-14: OK  pred=['Ashgrove', 4.853] expected=['Ashgrove', 4.9] 4.2s $0.00116
+s3 Q-15: OK  pred=['Redfen', 17.609] expected=['Redfen', 17.61] 4.9s $0.00090
+s3 Q-16: OK  pred=['yes', 23.9] expected=['yes', 23.9] 3.9s $0.00079
+s3 Q-17: OK  pred=['Harrowfield', 884.457] expected=['Harrowfield', 884] 5.6s $0.00131
+s3 Q-18: OK  pred=['yes', 40013.391] expected=['yes', 40013] 3.2s $0.00066
+s3 Q-19: OK  pred=['Lindenmoor', 0.035] expected=['Lindenmoor', 0.035] 4.7s $0.00111
+s3 Q-20: OK  pred=['Ashgrove', 2993.343] expected=['Ashgrove', 2993] 6.1s $0.00145
+
+| Strategy | Correct | Unanswered | Input tokens | Output tokens | Median s | Total s | Cost ($) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| s1 | 1/20 | 0 | 67552 | 406 | 1.06 | 22.4 | 0.0070 |
+| s2 | 19/20 | 0 | 325260 | 47808 | 2.97 | 61.1 | 0.0564 |
+| s3 | 20/20 | 0 | 142430 | 12693 | 4.9 | 97.5 | 0.0206 |

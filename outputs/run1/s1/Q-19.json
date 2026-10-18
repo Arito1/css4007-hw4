@@ -1,0 +1,36 @@
+{
+  "question": "Which district has the denser paved road network, Lindenmoor or Redfen, and by how many km of road per square kilometre?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-19",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Redfen",
+      0.361
+    ],
+    "expected": [
+      "Lindenmoor",
+      0.035
+    ],
+    "input_tokens": 3369,
+    "output_tokens": 19,
+    "cost": 0.0003464,
+    "seconds": 0.9493859999929555,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Which district has the denser paved road network, Lindenmoor or Redfen, and by how many km of road per square kilometre?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3369,
+        "output_tokens": 19,
+        "seconds": 0.9493216999690048,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Redfen\", \"number\": 0.361}",
+        "text": "ANSWER: Redfen | 0.361000"
+      }
+    ]
+  }
+}

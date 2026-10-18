@@ -1,0 +1,36 @@
+{
+  "question": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-15",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Kelmarsh",
+      40.641
+    ],
+    "expected": [
+      "Redfen",
+      17.61
+    ],
+    "input_tokens": 3370,
+    "output_tokens": 22,
+    "cost": 0.000348,
+    "seconds": 0.9795767000177875,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3370,
+        "output_tokens": 22,
+        "seconds": 0.9795213000033982,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Kelmarsh\", \"number\": 40.641}",
+        "text": "ANSWER: Kelmarsh | 40.641000"
+      }
+    ]
+  }
+}

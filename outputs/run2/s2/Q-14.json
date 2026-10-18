@@ -1,0 +1,88 @@
+{
+  "question": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-14",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Ashgrove",
+      4.845
+    ],
+    "expected": [
+      "Ashgrove",
+      4.9
+    ],
+    "input_tokens": 16245,
+    "output_tokens": 3559,
+    "cost": 0.003404,
+    "seconds": 4.006845100026112,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3249,
+        "output_tokens": 777,
+        "seconds": 3.8049916999880224,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): household water use 2025 = 5,207 megalitres; 2025 census population = 71,388.\n- Ashgrove (NR-10, 2025 profile): household water use 2025 = 4,390 megalitres; 2025 census population = 58,760.\n- Conversion: 1 megalitre = 1,000 cubic metres = 1,000,000 litres (from NR-15 definition of megalitre as 1,000 cubic metres; 1 m³ = 1,000 litres).\n- Days in 2025 = 365 (calendar year 2025, per NR-00).\n- Archived 2019 profiles (NR-13, NR-14) are superseded and not used.\n\nCalculations:\n- Tarnvale: 5,207 ML = 5,207,000,000 litres. Per resident per year = 5,207,000,000 / 71,388 = 72,942.0... Let me compute precisely: 71,388 × 72,900 = 5,203,985,200; remainder 3,014,800; /71,388 = 42.23. So ≈ 72,942.23 L/resident/year. Per day = 72,942.23 / 365 = 199.8422... Compute: 365 × 199.8 = 72,927; remainder 15.23; /365 = 0.04173. So ≈ 199.84173 L/resident/day.\n- Ashgrove: 4,390 ML = 4,390,000,000 litres. Per resident per year = 4,390,000,000 / 58,760 = 74,702.5... Compute: 58,760 × 74,700 = 4,389,372,000; remainder 628,000; /58,760 = 10.6870. So ≈ 74,710.687 L/resident/year. Per day = 74,710.687 / 365 = 204.6869... Compute: 365 × 204.6 = 74,679; remainder 31.687; /365 = 0.086813. So ≈ 204.68681 L/resident/day.\n\nComparison: Ashgrove (204.68681) exceeds Tarnvale (199.84173). Difference = 204.68681 − 199.84173 = 4.84508 ≈ 4.845 L per resident per day.\n\nAshgrove's households used more water per resident per day, by about 4.845 litres.\n\nANSWER: Ashgrove | 4.845",
+        "parsed": [
+          "Ashgrove",
+          4.845
+        ]
+      },
+      {
+        "input_tokens": 3249,
+        "output_tokens": 799,
+        "seconds": 4.002647800021805,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale: 2025 household water use = 5,207 megalitres (NR-03); 2025 census population = 71,388 (NR-03).\n- Ashgrove: 2025 household water use = 4,390 megalitres (NR-10); 2025 census population = 58,760 (NR-10).\n- Conversion: 1 megalitre = 1,000 cubic metres (NR-15), and 1 cubic metre = 1,000 litres, so 1 megalitre = 1,000,000 litres.\n- Period: calendar year 2025 = 365 days (2025 is not a leap year).\n\nCalculations:\n- Tarnvale: 5,207 ML = 5,207,000,000 L. Per resident per year = 5,207,000,000 / 71,388 = 72,939.2... L. Per day = 72,939.2 / 365 ≈ 199.8 L.\n More precisely: 5,207,000,000 / 71,388 = 72,939.7... Let me compute carefully: 71,388 × 72,940 = 5,207,... check 71,388 × 72,940 = 71,388 × 72,000 = 5,139,936,000; 71,388 × 940 = 67,104,720; total 5,207,040,720. That exceeds 5,207,000,000 by 40,720, so the quotient is 72,940 − 40,720/71,388 ≈ 72,940 − 0.5705 = 72,939.4295 L/year. Per day: 72,939.4295 / 365 = 199.8067 L/day.\n- Ashgrove: 4,390 ML = 4,390,000,000 L. Per resident per year = 4,390,000,000 / 58,760 = 74,700.5... Check: 58,760 × 74,700 = 4,389,972,000; remainder 28,000; 28,000/58,760 = 0.4765. So 74,700.4765 L/year. Per day: 74,700.4765 / 365 = 204.6588 L/day.\n\nComparison: Ashgrove uses more per resident per day, not Tarnvale. Difference = 204.6588 − 199.8067 = 4.8521 L/day.\n\nRefining the difference more carefully: 74,700.4765/365 = 204.65882; 72,939.4295/365 = 199.80663. Difference = 4.85219, so ≈ 4.852.\n\nANSWER: Ashgrove | 4.852",
+        "parsed": [
+          "Ashgrove",
+          4.852
+        ]
+      },
+      {
+        "input_tokens": 3249,
+        "output_tokens": 672,
+        "seconds": 3.592502399988007,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): household water use 2025 = 5,207 megalitres; 2025 census population = 71,388.\n- Ashgrove (NR-10, 2025 profile): household water use 2025 = 4,390 megalitres; 2025 census population = 58,760.\n- Unit conversion (NR-00/NR-15): 1 megalitre = 1,000 cubic metres; 1 cubic metre = 1,000 litres, so 1 megalitre = 1,000,000 litres.\n- Water use is household use over calendar year 2025, so divide by 365 days.\n\nCalculations:\n- Tarnvale: 5,207 ML = 5,207,000,000 L. Per resident per year = 5,207,000,000 / 71,388 = 72,939.0... L. Per day = 72,939.0 / 365 ≈ 199.8… L.\n More precisely: 5,207,000,000 / 71,388 = 72,941.4 (checking: 71,388 × 72,941 ≈ 5,206,988,000; remainder ≈ 12,000 → +0.17), so ≈ 72,941.17 L/year → /365 = 199.841 L/day.\n- Ashgrove: 4,390 ML = 4,390,000,000 L. Per resident per year = 4,390,000,000 / 58,760 = 74,698.4 L (58,760 × 74,698 = 4,389,985,000; remainder 15,000 → +0.26, so 74,698.26). Per day = 74,698.26 / 365 = 204.654 L/day.\n\nComparison: Ashgrove uses more per resident per day. Difference = 204.654 − 199.841 = 4.813 L/day.\n\nChecking the difference more precisely: Tarnvale 72,941.17/365 = 199.8387; Ashgrove 74,698.26/365 = 204.6529; difference = 4.8142 ≈ 4.814.\n\nANSWER: Ashgrove | 4.814",
+        "parsed": [
+          "Ashgrove",
+          4.814
+        ]
+      },
+      {
+        "input_tokens": 3249,
+        "output_tokens": 640,
+        "seconds": 3.162984199996572,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n\n- Tarnvale (NR-03, 2025 profile): household water use 2025 = 5,207 megalitres; 2025 census population = 71,388 residents.\n- Ashgrove (NR-10, 2025 profile): household water use 2025 = 4,390 megalitres; 2025 census population = 58,760 residents.\n- Units: 1 megalitre = 1,000 cubic metres; 1 cubic metre = 1,000 litres, so 1 megalitre = 1,000,000 litres.\n- Period: calendar year 2025 = 365 days (2025 is not a leap year).\n\nCalculations:\n\nTarnvale:\n- Annual litres = 5,207 × 1,000,000 = 5,207,000,000 litres\n- Per resident per year = 5,207,000,000 / 71,388 ≈ 72,939.2 litres\n- Per resident per day = 72,939.2 / 365 ≈ 199.834 litres\n\nAshgrove:\n- Annual litres = 4,390 × 1,000,000 = 4,390,000,000 litres\n- Per resident per year = 4,390,000,000 / 58,760 ≈ 74,raw: 4,390,000,000 / 58,760 ≈ 74,710.3 litres\n- Per resident per day = 74,710.3 / 365 ≈ 204.685 litres\n\nMore precisely:\n- Tarnvale: 5,207,000,000 / (71,388 × 365) = 5,207,000,000 / 26,056,620 ≈ 199.8336\n- Ashgrove: 4,390,000,000 / (58,760 × 365) = 4,390,000,000 / 21,447,400 ≈ 204.6846\n\nComparison: Ashgrove's households used more water per resident per day. Difference = 204.6846 − 199.8336 ≈ 4.851 litres.\n\nANSWER: Ashgrove | 4.851",
+        "parsed": [
+          "Ashgrove",
+          4.851
+        ]
+      },
+      {
+        "input_tokens": 3249,
+        "output_tokens": 671,
+        "seconds": 3.381825399992522,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Tarnvale (NR-03, 2025 profile): household water use 2025 = 5,207 megalitres; population 2025 census = 71,388.\n- Ashgrove (NR-10, 2025 profile): household water use 2025 = 4,390 megalitres; population 2025 census = 58,760.\n- Conversion (NR-00): 1 megalitre = 1,000 cubic metres; 1 cubic metre = 1,000 litres, so 1 megalitre = 1,000,000 litres.\n- Water use is over calendar year 2025, so divide by 365 days.\n\nCalculations:\n- Tarnvale: 5,207 × 1,000,000 = 5,207,000,000 litres per year. Per resident per year: 5,207,000,000 / 71,388 = 72,939.91... litres. Per day: 72,939.91 / 365 = 199.834 litres (approximately; computed as 5,207,000,000 / (71,388 × 365) = 5,207,000,000 / 26,056,620 = 199.8349...).\n- Ashgrove: 4,390 × 1,000,000 = 4,390,000,000 litres per year. Per day: 4,390,000,000 / (58,760 × 365) = 4,390,000,000 / 21,447,400 = 204.6... \n\nLet me compute more precisely:\n- Tarnvale: 26,056,620 × 199.8 = 5,206,113,276; remainder 886,724 / 26,056,620 = 0.03403. So 199.83403.\n- Ashgrove: 21,447,400 × 204.6 = 4,388,... compute 21,447,400 × 204 = 4,375,269,600; remainder 14,730,400 / 21,447,400 = 0.68682. So 204.68682.\n\nComparison: Ashgrove uses more per resident per day. Difference = 204.68682 − 199.83403 = 4.85279 litres, which rounds to 4.853.\n\nANSWER: Ashgrove | 4.853",
+        "parsed": [
+          "Ashgrove",
+          4.853
+        ]
+      }
+    ],
+    "vote": [
+      "Ashgrove",
+      4.845
+    ]
+  }
+}

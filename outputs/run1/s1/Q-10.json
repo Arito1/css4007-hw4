@@ -1,0 +1,36 @@
+{
+  "question": "Which district is older, Stonecairn or Coldharbour, and how many years older is it than the other?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-10",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Stonecairn",
+      8.0
+    ],
+    "expected": [
+      "Stonecairn",
+      8
+    ],
+    "input_tokens": 3361,
+    "output_tokens": 21,
+    "cost": 0.0003466,
+    "seconds": 1.5215796999982558,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Which district is older, Stonecairn or Coldharbour, and how many years older is it than the other?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3361,
+        "output_tokens": 21,
+        "seconds": 1.5215369000216015,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Stonecairn\", \"number\": 8.000}",
+        "text": "ANSWER: Stonecairn | 8.000000"
+      }
+    ]
+  }
+}

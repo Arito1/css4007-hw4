@@ -1,0 +1,36 @@
+{
+  "question": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-14",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Tarnvale",
+      36.424
+    ],
+    "expected": [
+      "Ashgrove",
+      4.9
+    ],
+    "input_tokens": 3374,
+    "output_tokens": 21,
+    "cost": 0.0003479,
+    "seconds": 0.9227803000248969,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "In 2025, which district's households used more water per resident per day, Tarnvale or Ashgrove, and by how many litres per resident per day?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3374,
+        "output_tokens": 21,
+        "seconds": 0.9227072999929078,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Tarnvale\", \"number\": 36.424}",
+        "text": "ANSWER: Tarnvale | 36.424000"
+      }
+    ]
+  }
+}

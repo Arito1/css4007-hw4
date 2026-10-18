@@ -1,0 +1,36 @@
+{
+  "question": "Which district has the higher population density in 2025, Ossbridge or Ossford, and by how many residents per square kilometre?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-01",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Ossbridge",
+      41.187
+    ],
+    "expected": [
+      "Ossbridge",
+      4.6
+    ],
+    "input_tokens": 3369,
+    "output_tokens": 21,
+    "cost": 0.0003474,
+    "seconds": 1.8114995999494568,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Which district has the higher population density in 2025, Ossbridge or Ossford, and by how many residents per square kilometre?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3369,
+        "output_tokens": 21,
+        "seconds": 1.8114220999996178,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Ossbridge\", \"number\": 41.187}",
+        "text": "ANSWER: Ossbridge | 41.187000"
+      }
+    ]
+  }
+}

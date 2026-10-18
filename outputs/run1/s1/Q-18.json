@@ -1,0 +1,36 @@
+{
+  "question": "If Millbrook's population grows by the same percentage from 2025 to 2030 as it did from 2020 to 2025, will it exceed 40,000 residents in 2030? Give the projected 2030 population.",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-18",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "No",
+      40046.143
+    ],
+    "expected": [
+      "yes",
+      40013
+    ],
+    "input_tokens": 3397,
+    "output_tokens": 17,
+    "cost": 0.0003482,
+    "seconds": 1.060781100008171,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "If Millbrook's population grows by the same percentage from 2025 to 2030 as it did from 2020 to 2025, will it exceed 40,000 residents in 2030? Give the projected 2030 population.\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3397,
+        "output_tokens": 17,
+        "seconds": 1.0607267000013962,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"No\", \"number\": 40046.143}",
+        "text": "ANSWER: No | 40046.143000"
+      }
+    ]
+  }
+}

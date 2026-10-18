@@ -1,0 +1,88 @@
+{
+  "question": "Which district is older, Stonecairn or Coldharbour, and how many years older is it than the other?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-10",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Stonecairn",
+      8.0
+    ],
+    "expected": [
+      "Stonecairn",
+      8
+    ],
+    "input_tokens": 16180,
+    "output_tokens": 863,
+    "cost": 0.0020495,
+    "seconds": 1.3317525999736972,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Which district is older, Stonecairn or Coldharbour, and how many years older is it than the other?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3236,
+        "output_tokens": 169,
+        "seconds": 1.1419051999691874,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Stonecairn was founded in 1837 (NR-06, 2025 profile, not archived).\n- Coldharbour was founded in 1845 (NR-12, 2025 profile).\n\nCalculation: Stonecairn is older than Coldharbour because 1837 is earlier than 1845. The difference is 1845 − 1837 = 8 years.\n\nComparison: Stonecairn (1837) is the older district, by 8 years.\n\nANSWER: Stonecairn | 8.000",
+        "parsed": [
+          "Stonecairn",
+          8.0
+        ]
+      },
+      {
+        "input_tokens": 3236,
+        "output_tokens": 184,
+        "seconds": 1.2268185000284575,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Stonecairn: founded in 1837 (NR-06, 2025 profile, not archived).\n- Coldharbour: founded in 1845 (NR-12, 2025 profile).\n\nCalculation: Stonecairn was founded in 1837 and Coldharbour in 1845. Stonecairn is older because 1837 is earlier than 1845. The difference is 1845 − 1837 = 8 years.\n\nComparison: Stonecairn is the older district, by 8 years.\n\nANSWER: Stonecairn | 8.000",
+        "parsed": [
+          "Stonecairn",
+          8.0
+        ]
+      },
+      {
+        "input_tokens": 3236,
+        "output_tokens": 158,
+        "seconds": 1.1279628000338562,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Stonecairn was founded in 1837 (NR-06, 2025 profile, not archived).\n- Coldharbour was founded in 1845 (NR-12, 2025 profile).\n\nCalculation: Stonecairn is older because 1837 is earlier than 1845. The difference is 1845 − 1837 = 8 years.\n\nComparison: Stonecairn is the older district, by 8 years.\n\nANSWER: Stonecairn | 8.000",
+        "parsed": [
+          "Stonecairn",
+          8.0
+        ]
+      },
+      {
+        "input_tokens": 3236,
+        "output_tokens": 159,
+        "seconds": 1.1237705000094138,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Stonecairn was founded in 1837 (NR-06, 2025 profile, not archived).\n- Coldharbour was founded in 1845 (NR-12, 2025 profile).\n\nCalculation: Stonecairn (1837) is older than Coldharbour (1845). Difference: 1845 − 1837 = 8 years.\n\nComparison: Stonecairn is the older district, by 8 years.\n\nANSWER: Stonecairn | 8.000",
+        "parsed": [
+          "Stonecairn",
+          8.0
+        ]
+      },
+      {
+        "input_tokens": 3236,
+        "output_tokens": 193,
+        "seconds": 1.3198837999952957,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Stonecairn was founded in 1837 (NR-06, 2025 profile).\n- Coldharbour was founded in 1845 (NR-12, 2025 profile).\n\nCalculations:\n- Coldharbour founded 1845, Stonecairn founded 1837, so Stonecairn is older.\n- Difference: 1845 − 1837 = 8 years.\n\nComparison: Stonecairn (1837) predates Coldharbour (1845), so Stonecairn is the older district, by 8 years.\n\nANSWER: Stonecairn | 8.000",
+        "parsed": [
+          "Stonecairn",
+          8.0
+        ]
+      }
+    ],
+    "vote": [
+      "Stonecairn",
+      8.0
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "question": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?",
+  "row": {
+    "strategy": "s2",
+    "id": "Q-15",
+    "correct": true,
+    "unanswered": false,
+    "pred": [
+      "Redfen",
+      17.609
+    ],
+    "expected": [
+      "Redfen",
+      17.61
+    ],
+    "input_tokens": 16225,
+    "output_tokens": 1308,
+    "cost": 0.0022765000000000003,
+    "seconds": 1.9991022000322118,
+    "api_calls": 5
+  },
+  "log": {
+    "strategy": "S2",
+    "k": 5,
+    "user": "Which district has more pupils per school in 2025/26, Kelmarsh or Redfen, and by how many pupils per school?\n\nThink step by step: first write down every fact you need and the document it comes from, then do the calculations, then compare. Then give the ANSWER line.\nEnd your reply with exactly one final line in this format:\nANSWER: <district name or yes/no> | <number>\nWrite the number as a plain number (no units, no thousands separators), rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3245,
+        "output_tokens": 245,
+        "seconds": 1.894239799992647,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 school year, from the 2025 profiles, not the archived ones):\n\n- Kelmarsh (NR-04): 11 schools, 3,268 pupils enrolled in 2025/26.\n- Redfen (NR-09): 10 schools, 3,147 pupils enrolled in 2025/26.\n\nCalculations:\n\n- Kelmarsh: 3,268 / 11 = 297.0909... pupils per school.\n- Redfen: 3,147 / 10 = 314.7 pupils per school.\n\nComparison: Redfen has more pupils per school. The difference is 314.7 − 297.0909... = 17.6090909..., which rounds to 17.609.\n\nANSWER: Redfen | 17.609",
+        "parsed": [
+          "Redfen",
+          17.609
+        ]
+      },
+      {
+        "input_tokens": 3245,
+        "output_tokens": 268,
+        "seconds": 1.9952958999783732,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Kelmarsh (NR-04, 2025 profile): 3,268 pupils enrolled in 2025/26; 11 schools.\n- Redfen (NR-09, 2025 profile): 3,147 pupils enrolled in 2025/26; 10 schools.\n- The ARCHIVED 2019 profiles (NR-14) are superseded and not used.\n\nCalculations:\n- Kelmarsh: 3,268 / 11 = 297.090909... ≈ 297.091\n- Redfen: 3,147 / 10 = 314.7\n\nComparison: Redfen has 314.7 − 297.0909... = 17.6090909... more pupils per school than Kelmarsh, so Redfen is higher by about 17.609.\n\nANSWER: Redfen | 17.609",
+        "parsed": [
+          "Redfen",
+          17.609
+        ]
+      },
+      {
+        "input_tokens": 3245,
+        "output_tokens": 277,
+        "seconds": 1.8907279999693856,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Kelmarsh (NR-04, 2025 profile): 11 schools, 3,268 pupils enrolled in 2025/26.\n- Redfen (NR-09, 2025 profile): 10 schools, 3,147 pupils enrolled in 2025/26.\n\nThe ARCHIVED 2019 profiles (NR-14) are superseded and not used.\n\nCalculations:\n- Kelmarsh: 3,268 / 11 = 297.090909... ≈ 297.091 pupils per school.\n- Redfen: 3,147 / 10 = 314.7 pupils per school.\n\nComparison: Redfen has more pupils per school. Difference: 314.7 − 297.0909... = 17.6090909... ≈ 17.609 pupils per school.\n\nANSWER: Redfen | 17.609",
+        "parsed": [
+          "Redfen",
+          17.609
+        ]
+      },
+      {
+        "input_tokens": 3245,
+        "output_tokens": 265,
+        "seconds": 1.8894032000098377,
+        "stop_reason": "end_turn",
+        "text": "Facts needed:\n- Kelmarsh (NR-04, 2025 profile): 3,268 pupils in 2025/26, 11 schools.\n- Redfen (NR-09, 2025 profile): 3,147 pupils in 2025/26, 10 schools.\n- The ARCHIVED 2019 profiles (NR-14) are superseded and not used.\n\nCalculations:\n- Kelmarsh: 3,268 / 11 = 297.090909... ≈ 297.091 pupils per school\n- Redfen: 3,147 / 10 = 314.7 pupils per school\n\nComparison:\n- Redfen has more pupils per school: 314.7 − 297.091 = 17.609 (rounded to 3 decimals: 17.609)\n\nANSWER: Redfen | 17.609",
+        "parsed": [
+          "Redfen",
+          17.609
+        ]
+      },
+      {
+        "input_tokens": 3245,
+        "output_tokens": 253,
+        "seconds": 1.778008499997668,
+        "stop_reason": "end_turn",
+        "text": "Facts needed (2025/26 school year, from the 2025 profiles, not the archived ones):\n\n- Kelmarsh: 11 schools, 3,268 pupils (NR-04).\n- Redfen: 10 schools, 3,147 pupils (NR-09).\n\nCalculations:\n- Kelmarsh pupils per school: 3,268 / 11 = 297.090909...\n- Redfen pupils per school: 3,147 / 10 = 314.7\n\nComparison: Redfen has 314.7 − 297.090909 = 17.609091 more pupils per school than Kelmarsh, so Redfen is the district with more pupils per school.\n\nRounded to 3 decimal places, the difference is 17.609.\n\nANSWER: Redfen | 17.609",
+        "parsed": [
+          "Redfen",
+          17.609
+        ]
+      }
+    ],
+    "vote": [
+      "Redfen",
+      17.609
+    ]
+  }
+}

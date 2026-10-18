@@ -1,0 +1,36 @@
+{
+  "question": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-08",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Brightwater",
+      0.0
+    ],
+    "expected": [
+      "Brightwater",
+      72.46
+    ],
+    "input_tokens": 3378,
+    "output_tokens": 20,
+    "cost": 0.0003478,
+    "seconds": 1.1513914000242949,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3378,
+        "output_tokens": 20,
+        "seconds": 1.1511415999848396,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Brightwater\", \"number\": 0.0}",
+        "text": "ANSWER: Brightwater | 0.000000"
+      }
+    ]
+  }
+}

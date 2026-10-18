@@ -1,0 +1,1232 @@
+{
+  "settings": {
+    "model": "claude-haiku-5-5",
+    "max_tokens": 4096,
+    "thinking": {
+      "type": "disabled"
+    },
+    "effort": "medium",
+    "temperature": "default (1); Haiku 5.5 rejects other values",
+    "k": 5,
+    "max_rounds": 8,
+    "vague_lookup": false,
+    "started": "2026-10-19 02:19:14"
+  },
+  "summary": [
+    {
+      "strategy": "s1",
+      "correct": 1,
+      "n": 20,
+      "unanswered": 0,
+      "input_tokens": 67552,
+      "output_tokens": 406,
+      "median_seconds": 1.06,
+      "total_seconds": 22.4,
+      "cost": 0.00696
+    },
+    {
+      "strategy": "s2",
+      "correct": 19,
+      "n": 20,
+      "unanswered": 0,
+      "input_tokens": 325260,
+      "output_tokens": 47808,
+      "median_seconds": 2.97,
+      "total_seconds": 61.1,
+      "cost": 0.05643
+    },
+    {
+      "strategy": "s3",
+      "correct": 20,
+      "n": 20,
+      "unanswered": 0,
+      "input_tokens": 142430,
+      "output_tokens": 12693,
+      "median_seconds": 4.9,
+      "total_seconds": 97.5,
+      "cost": 0.02059
+    }
+  ],
+  "rows": [
+    {
+      "strategy": "s1",
+      "id": "Q-01",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        41.189
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 3369,
+      "output_tokens": 21,
+      "cost": 0.0003474,
+      "seconds": 1.481399699987378,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-02",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Tarnvale",
+        6.148
+      ],
+      "expected": [
+        "Harrowfield",
+        1.69
+      ],
+      "input_tokens": 3382,
+      "output_tokens": 21,
+      "cost": 0.0003487,
+      "seconds": 0.9971505000139587,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-03",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Kelmarsh",
+        79.152
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 3376,
+      "output_tokens": 22,
+      "cost": 0.0003486,
+      "seconds": 0.9316210999968462,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-04",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Ashgrove",
+        12.0
+      ],
+      "expected": [
+        "Millbrook",
+        2.59
+      ],
+      "input_tokens": 3370,
+      "output_tokens": 23,
+      "cost": 0.0003485,
+      "seconds": 1.142974000016693,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-05",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        42.153
+      ],
+      "expected": [
+        "Coldharbour",
+        14235
+      ],
+      "input_tokens": 3372,
+      "output_tokens": 21,
+      "cost": 0.0003477,
+      "seconds": 1.0710553000099026,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-06",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        13.0
+      ],
+      "expected": [
+        "yes",
+        14069
+      ],
+      "input_tokens": 3379,
+      "output_tokens": 17,
+      "cost": 0.0003464,
+      "seconds": 1.0501765999943018,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-07",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        52.462
+      ],
+      "expected": [
+        "Coldharbour",
+        18.5
+      ],
+      "input_tokens": 3379,
+      "output_tokens": 21,
+      "cost": 0.0003484,
+      "seconds": 1.2127275000093505,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-08",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Brightwater",
+        0.0
+      ],
+      "expected": [
+        "Brightwater",
+        72.46
+      ],
+      "input_tokens": 3378,
+      "output_tokens": 20,
+      "cost": 0.0003478,
+      "seconds": 1.1513914000242949,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-09",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        9.0
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 3369,
+      "output_tokens": 20,
+      "cost": 0.00034690000000000003,
+      "seconds": 1.0852197000058368,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-10",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Stonecairn",
+        8.0
+      ],
+      "expected": [
+        "Stonecairn",
+        8
+      ],
+      "input_tokens": 3361,
+      "output_tokens": 21,
+      "cost": 0.0003466,
+      "seconds": 1.5393472000141628,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-11",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        314.7
+      ],
+      "expected": [
+        "Redfen",
+        56.1
+      ],
+      "input_tokens": 3391,
+      "output_tokens": 19,
+      "cost": 0.0003486,
+      "seconds": 1.52080489997752,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-12",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        0.0
+      ],
+      "expected": [
+        "Tarnvale",
+        64.4
+      ],
+      "input_tokens": 3379,
+      "output_tokens": 21,
+      "cost": 0.0003484,
+      "seconds": 1.0445541000226513,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-13",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Stonecairn",
+        -3.547
+      ],
+      "expected": [
+        "Coldharbour",
+        4.16
+      ],
+      "input_tokens": 3386,
+      "output_tokens": 21,
+      "cost": 0.00034910000000000003,
+      "seconds": 0.9816437999834307,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-14",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Tarnvale",
+        43.946
+      ],
+      "expected": [
+        "Ashgrove",
+        4.9
+      ],
+      "input_tokens": 3374,
+      "output_tokens": 21,
+      "cost": 0.0003479,
+      "seconds": 1.1632616999559104,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-15",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Kelmarsh",
+        40.641
+      ],
+      "expected": [
+        "Redfen",
+        17.61
+      ],
+      "input_tokens": 3370,
+      "output_tokens": 22,
+      "cost": 0.000348,
+      "seconds": 0.9795767000177875,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-16",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        134.5
+      ],
+      "expected": [
+        "yes",
+        23.9
+      ],
+      "input_tokens": 3375,
+      "output_tokens": 17,
+      "cost": 0.000346,
+      "seconds": 0.9509989999933168,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-17",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        3.636
+      ],
+      "expected": [
+        "Harrowfield",
+        884
+      ],
+      "input_tokens": 3384,
+      "output_tokens": 21,
+      "cost": 0.0003489,
+      "seconds": 1.0239857000415213,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-18",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "No",
+        40189.0
+      ],
+      "expected": [
+        "yes",
+        40013
+      ],
+      "input_tokens": 3397,
+      "output_tokens": 17,
+      "cost": 0.0003482,
+      "seconds": 1.1303370999521576,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-19",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        0.361
+      ],
+      "expected": [
+        "Lindenmoor",
+        0.035
+      ],
+      "input_tokens": 3369,
+      "output_tokens": 19,
+      "cost": 0.0003464,
+      "seconds": 0.96903520001797,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s1",
+      "id": "Q-20",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        177.526
+      ],
+      "expected": [
+        "Ashgrove",
+        2993
+      ],
+      "input_tokens": 3392,
+      "output_tokens": 21,
+      "cost": 0.0003497,
+      "seconds": 0.9508029999560677,
+      "api_calls": 1
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-01",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        4.57
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 16220,
+      "output_tokens": 1830,
+      "cost": 0.002537,
+      "seconds": 2.868175500014331,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-02",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        1.687
+      ],
+      "expected": [
+        "Harrowfield",
+        1.69
+      ],
+      "input_tokens": 16285,
+      "output_tokens": 2501,
+      "cost": 0.002879,
+      "seconds": 3.065006099990569,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-03",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        5.34
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 16255,
+      "output_tokens": 4139,
+      "cost": 0.003695,
+      "seconds": 4.5988391999853775,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-04",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        2.592
+      ],
+      "expected": [
+        "Millbrook",
+        2.59
+      ],
+      "input_tokens": 16225,
+      "output_tokens": 1381,
+      "cost": 0.002313,
+      "seconds": 2.0571305999765173,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-05",
+      "correct": false,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        14245.202
+      ],
+      "expected": [
+        "Coldharbour",
+        14235
+      ],
+      "input_tokens": 16235,
+      "output_tokens": 3247,
+      "cost": 0.003247,
+      "seconds": 3.5769444000325166,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-06",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        14069.0
+      ],
+      "expected": [
+        "yes",
+        14069
+      ],
+      "input_tokens": 16270,
+      "output_tokens": 1504,
+      "cost": 0.002379,
+      "seconds": 1.9779424999724142,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-07",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        18.496
+      ],
+      "expected": [
+        "Coldharbour",
+        18.5
+      ],
+      "input_tokens": 16270,
+      "output_tokens": 2593,
+      "cost": 0.0029235,
+      "seconds": 3.248125299985986,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-08",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Brightwater",
+        72.456
+      ],
+      "expected": [
+        "Brightwater",
+        72.46
+      ],
+      "input_tokens": 16265,
+      "output_tokens": 2624,
+      "cost": 0.0029385,
+      "seconds": 4.602623199985828,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-09",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        0.556
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 16220,
+      "output_tokens": 2344,
+      "cost": 0.002794,
+      "seconds": 3.356643199978862,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-10",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Stonecairn",
+        8.0
+      ],
+      "expected": [
+        "Stonecairn",
+        8
+      ],
+      "input_tokens": 16180,
+      "output_tokens": 863,
+      "cost": 0.0020495,
+      "seconds": 1.3317525999736972,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-11",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        56.1
+      ],
+      "expected": [
+        "Redfen",
+        56.1
+      ],
+      "input_tokens": 16330,
+      "output_tokens": 1478,
+      "cost": 0.002372,
+      "seconds": 1.9822032999945804,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-12",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Tarnvale",
+        64.392
+      ],
+      "expected": [
+        "Tarnvale",
+        64.4
+      ],
+      "input_tokens": 16270,
+      "output_tokens": 3396,
+      "cost": 0.003325,
+      "seconds": 3.450854700000491,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-13",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        4.159
+      ],
+      "expected": [
+        "Coldharbour",
+        4.16
+      ],
+      "input_tokens": 16305,
+      "output_tokens": 2089,
+      "cost": 0.0026750000000000003,
+      "seconds": 2.7385777999879792,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-14",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ashgrove",
+        4.845
+      ],
+      "expected": [
+        "Ashgrove",
+        4.9
+      ],
+      "input_tokens": 16245,
+      "output_tokens": 3559,
+      "cost": 0.003404,
+      "seconds": 4.006845100026112,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-15",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        17.609
+      ],
+      "expected": [
+        "Redfen",
+        17.61
+      ],
+      "input_tokens": 16225,
+      "output_tokens": 1308,
+      "cost": 0.0022765000000000003,
+      "seconds": 1.9991022000322118,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-16",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        23.9
+      ],
+      "expected": [
+        "yes",
+        23.9
+      ],
+      "input_tokens": 16250,
+      "output_tokens": 1428,
+      "cost": 0.002339,
+      "seconds": 2.695858299965039,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-17",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        884.291
+      ],
+      "expected": [
+        "Harrowfield",
+        884
+      ],
+      "input_tokens": 16295,
+      "output_tokens": 3851,
+      "cost": 0.003555,
+      "seconds": 4.0945162999560125,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-18",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        40013.334
+      ],
+      "expected": [
+        "yes",
+        40013
+      ],
+      "input_tokens": 16360,
+      "output_tokens": 2017,
+      "cost": 0.0026445,
+      "seconds": 2.7530631000408903,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-19",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        0.035
+      ],
+      "expected": [
+        "Lindenmoor",
+        0.035
+      ],
+      "input_tokens": 16220,
+      "output_tokens": 1847,
+      "cost": 0.0025455,
+      "seconds": 2.5015646999818273,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s2",
+      "id": "Q-20",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ashgrove",
+        2993.3
+      ],
+      "expected": [
+        "Ashgrove",
+        2993
+      ],
+      "input_tokens": 16335,
+      "output_tokens": 3809,
+      "cost": 0.0035380000000000003,
+      "seconds": 4.2131570999627,
+      "api_calls": 5
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-01",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ossbridge",
+        4.57
+      ],
+      "expected": [
+        "Ossbridge",
+        4.6
+      ],
+      "input_tokens": 8065,
+      "output_tokens": 578,
+      "cost": 0.0010955000000000001,
+      "seconds": 4.869549900002312,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-02",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        1.687
+      ],
+      "expected": [
+        "Harrowfield",
+        1.69
+      ],
+      "input_tokens": 5859,
+      "output_tokens": 581,
+      "cost": 0.0008764,
+      "seconds": 8.789937699970324,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 6
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-03",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        5.34
+      ],
+      "expected": [
+        "Lindenmoor",
+        5.3
+      ],
+      "input_tokens": 5971,
+      "output_tokens": 596,
+      "cost": 0.0008951,
+      "seconds": 4.298493799986318,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 6
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-04",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        2.592
+      ],
+      "expected": [
+        "Millbrook",
+        2.59
+      ],
+      "input_tokens": 8166,
+      "output_tokens": 657,
+      "cost": 0.0011451,
+      "seconds": 5.228449799993541,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-05",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        14235.314
+      ],
+      "expected": [
+        "Coldharbour",
+        14235
+      ],
+      "input_tokens": 8381,
+      "output_tokens": 650,
+      "cost": 0.0011631,
+      "seconds": 5.161103099992033,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-06",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        14069.0
+      ],
+      "expected": [
+        "yes",
+        14069
+      ],
+      "input_tokens": 5250,
+      "output_tokens": 400,
+      "cost": 0.0007250000000000001,
+      "seconds": 3.3325116999913007,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 4
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-07",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        18.496
+      ],
+      "expected": [
+        "Coldharbour",
+        18.5
+      ],
+      "input_tokens": 8291,
+      "output_tokens": 610,
+      "cost": 0.0011341,
+      "seconds": 4.9247746000182815,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-08",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Brightwater",
+        72.456
+      ],
+      "expected": [
+        "Brightwater",
+        72.46
+      ],
+      "input_tokens": 5731,
+      "output_tokens": 668,
+      "cost": 0.0009071,
+      "seconds": 4.577501900028437,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 6
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-09",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Millbrook",
+        0.556
+      ],
+      "expected": [
+        "Millbrook",
+        0.6
+      ],
+      "input_tokens": 5819,
+      "output_tokens": 658,
+      "cost": 0.0009109000000000001,
+      "seconds": 3.9477916000178084,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-10",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Stonecairn",
+        8.0
+      ],
+      "expected": [
+        "Stonecairn",
+        8
+      ],
+      "input_tokens": 4748,
+      "output_tokens": 302,
+      "cost": 0.0006258,
+      "seconds": 3.1499567999853753,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 3
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-11",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        56.1
+      ],
+      "expected": [
+        "Redfen",
+        56.1
+      ],
+      "input_tokens": 9458,
+      "output_tokens": 855,
+      "cost": 0.0013733,
+      "seconds": 5.528377300011925,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 10
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-12",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Tarnvale",
+        64.392
+      ],
+      "expected": [
+        "Tarnvale",
+        64.4
+      ],
+      "input_tokens": 8500,
+      "output_tokens": 764,
+      "cost": 0.001232,
+      "seconds": 5.297460299974773,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-13",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Coldharbour",
+        4.159
+      ],
+      "expected": [
+        "Coldharbour",
+        4.16
+      ],
+      "input_tokens": 6765,
+      "output_tokens": 909,
+      "cost": 0.001131,
+      "seconds": 5.670859400008339,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 9
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-14",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ashgrove",
+        4.853
+      ],
+      "expected": [
+        "Ashgrove",
+        4.9
+      ],
+      "input_tokens": 8355,
+      "output_tokens": 649,
+      "cost": 0.00116,
+      "seconds": 4.2209975000005215,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-15",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Redfen",
+        17.609
+      ],
+      "expected": [
+        "Redfen",
+        17.61
+      ],
+      "input_tokens": 5843,
+      "output_tokens": 622,
+      "cost": 0.0008953,
+      "seconds": 4.937431400001515,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-16",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        23.9
+      ],
+      "expected": [
+        "yes",
+        23.9
+      ],
+      "input_tokens": 5454,
+      "output_tokens": 485,
+      "cost": 0.0007879,
+      "seconds": 3.9102774999919347,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 5
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-17",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Harrowfield",
+        884.457
+      ],
+      "expected": [
+        "Harrowfield",
+        884
+      ],
+      "input_tokens": 8943,
+      "output_tokens": 837,
+      "cost": 0.0013128,
+      "seconds": 5.561314800055698,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 8
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-18",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "yes",
+        40013.391
+      ],
+      "expected": [
+        "yes",
+        40013
+      ],
+      "input_tokens": 4886,
+      "output_tokens": 349,
+      "cost": 0.0006631,
+      "seconds": 3.2264968999661505,
+      "api_calls": 3,
+      "rounds": 3,
+      "tool_calls": 3
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-19",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Lindenmoor",
+        0.035
+      ],
+      "expected": [
+        "Lindenmoor",
+        0.035
+      ],
+      "input_tokens": 8203,
+      "output_tokens": 580,
+      "cost": 0.0011103,
+      "seconds": 4.737179699994158,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 7
+    },
+    {
+      "strategy": "s3",
+      "id": "Q-20",
+      "correct": true,
+      "unanswered": false,
+      "pred": [
+        "Ashgrove",
+        2993.343
+      ],
+      "expected": [
+        "Ashgrove",
+        2993
+      ],
+      "input_tokens": 9742,
+      "output_tokens": 943,
+      "cost": 0.0014457,
+      "seconds": 6.096043300000019,
+      "api_calls": 4,
+      "rounds": 4,
+      "tool_calls": 10
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "question": "Is the combined area of Ossbridge and Ossford larger than the area of Tarnvale, and by how many square kilometres do they differ?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-16",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "yes",
+      133.5
+    ],
+    "expected": [
+      "yes",
+      23.9
+    ],
+    "input_tokens": 3375,
+    "output_tokens": 17,
+    "cost": 0.000346,
+    "seconds": 1.0365472999983467,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Is the combined area of Ossbridge and Ossford larger than the area of Tarnvale, and by how many square kilometres do they differ?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3375,
+        "output_tokens": 17,
+        "seconds": 1.0365063999779522,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"yes\", \"number\": 133.500}",
+        "text": "ANSWER: yes | 133.500000"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "question": "Of Redfen, Ashgrove and Millbrook, which district has the fewest pupils per school in 2025/26, and how many pupils per school separate the highest of the three from the lowest?",
+  "row": {
+    "strategy": "s1",
+    "id": "Q-11",
+    "correct": false,
+    "unanswered": false,
+    "pred": [
+      "Redfen",
+      314.7
+    ],
+    "expected": [
+      "Redfen",
+      56.1
+    ],
+    "input_tokens": 3391,
+    "output_tokens": 19,
+    "cost": 0.0003486,
+    "seconds": 0.9313923000008799,
+    "api_calls": 1
+  },
+  "log": {
+    "strategy": "S1",
+    "user": "Of Redfen, Ashgrove and Millbrook, which district has the fewest pupils per school in 2025/26, and how many pupils per school separate the highest of the three from the lowest?\n\nAnswer directly with the district name (or yes/no) and the number, rounded to 3 decimal places.",
+    "calls": [
+      {
+        "input_tokens": 3391,
+        "output_tokens": 19,
+        "seconds": 0.9313317000051029,
+        "stop_reason": "end_turn",
+        "raw": "{\"name\": \"Redfen\", \"number\": 314.700}",
+        "text": "ANSWER: Redfen | 314.700000"
+      }
+    ]
+  }
+}
